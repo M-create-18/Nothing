@@ -124,3 +124,191 @@ body{
     top:85px;
     left:20px;
 }
+ 
+/* LIGHTS */
+
+.light{
+    position:absolute;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:#ffe6a3;
+
+    box-shadow:0 0 25px #ffe6a3;
+
+    transition:opacity 1s ease;
+}
+
+.light1{
+    top:75px;
+    left:260px;
+}
+
+.light2{
+    top:180px;
+    right:95px;
+}
+
+.light3{
+    bottom:180px;
+    right:95px;
+}
+
+.light4{
+    bottom:75px;
+    left:260px;
+}
+
+.light5{
+    bottom:180px;
+    left:95px;
+}
+
+.light6{
+    top:180px;
+    left:95px;
+}
+
+
+/* MEMORY SCREEN */
+
+.memoryScreen{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    z-index:1000;
+
+    background:#000;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:25px;
+}
+
+
+.placeholder{
+    width:280px;
+    height:360px;
+
+    border:2px solid #b99b5a;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255,215,120,.12),
+        rgba(0,0,0,.95)
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#b99b5a;
+
+    font-size:14px;
+    letter-spacing:1px;
+
+    box-shadow:0 0 35px rgba(255,215,120,.25);
+}
+
+
+.memoryMessage{
+    margin-top:28px;
+
+    max-width:600px;
+
+    font-size:20px;
+    line-height:1.7;
+}
+
+
+.continueButton{
+    margin-top:30px;
+
+    padding:12px 32px;
+
+    border-radius:30px;
+
+    background:transparent;
+
+    color:#F5F1E8;
+
+    border:1px solid #b99b5a;
+
+    font-family:'Libre Baskerville',serif;
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+
+.continueButton:hover{
+    background:#b99b5a;
+    color:#000;
+}
+
+
+/* KEY SCREEN */
+
+.keyScreen{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    z-index:1100;
+
+    background:#000;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+}
+
+
+.keySymbol{
+    font-size:70px;
+
+    animation:keyGlow 2s ease-in-out infinite alternate;
+}
+
+
+.keyText{
+    margin-top:25px;
+
+    font-size:24px;
+    letter-spacing:3px;
+
+    color:#F5F1E8;
+}
+
+
+@keyframes keyGlow{
+
+    from{
+        opacity:.5;
+        transform:scale(.95);
+        text-shadow:0 0 10px #ffe6a3;
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.05);
+        text-shadow:
+        0 0 20px #ffe6a3,
+        0 0 40px #ffe6a3;
+    }
+
+        }
