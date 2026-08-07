@@ -5,46 +5,198 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Project</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
-background:#000;color:#F5F1E8;font-family:'Libre Baskerville',serif;
-display:flex;justify-content:center;align-items:center;
-height:100vh;overflow:hidden;position:relative}
-.dust{position:absolute;inset:0;
+background:#000;
+color:#F5F1E8;
+font-family:'Libre Baskerville',serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+position:relative
+}
+
+.dust{
+position:absolute;
+inset:0;
 background:
 radial-gradient(circle at 20% 30%,rgba(255,255,255,.16) 1px,transparent 1px),
 radial-gradient(circle at 70% 60%,rgba(255,255,255,.10) 1px,transparent 1px),
 radial-gradient(circle at 40% 80%,rgba(255,255,255,.12) 1px,transparent 1px);
 background-size:180px 180px;
-animation:dust 18s linear infinite;opacity:.35}
-.container{text-align:center;z-index:2;width:90%;max-width:700px}
-.fade{opacity:0;animation:fade 2s forwards}
+animation:dust 18s linear infinite;
+opacity:.35
+}
+
+.container{
+text-align:center;
+z-index:2;
+width:90%;
+max-width:700px
+}
+
+.fade{
+opacity:0;
+animation:fade 2s forwards
+}
+
 .line1{font-size:30px}
-.key{font-size:110px;margin:35px 0;text-shadow:0 0 20px rgba(255,215,120,.45);animation-delay:3s}
-.line2{font-size:24px;animation-delay:5s}
-.line3{font-size:24px;margin:12px 0 40px;animation-delay:7s}
-.buttons{animation-delay:9s}
+
+.key{
+font-size:110px;
+margin:35px 0;
+text-shadow:0 0 20px rgba(255,215,120,.45);
+animation-delay:3s
+}
+
+.line2{
+font-size:24px;
+animation-delay:5s
+}
+
+.line3{
+font-size:24px;
+margin:12px 0 40px;
+animation-delay:7s
+}
+
+.buttons{
+animation-delay:9s
+}
+
 button{
-background:transparent;color:#F5F1E8;border:1px solid #F5F1E8;
-padding:12px 30px;border-radius:30px;margin:10px;font-size:18px;
-font-family:'Libre Baskerville',serif;cursor:pointer}
-button:hover{background:#F5F1E8;color:#111}
-@keyframes fade{to{opacity:1}}
-@keyframes dust{from{transform:translateY(0)}to{transform:translateY(-150px)}}
+background:transparent;
+color:#F5F1E8;
+border:1px solid #F5F1E8;
+padding:12px 30px;
+border-radius:30px;
+margin:10px;
+font-size:18px;
+font-family:'Libre Baskerville',serif;
+cursor:pointer
+}
+
+button:hover{
+background:#F5F1E8;
+color:#111
+}
+
+@keyframes fade{
+to{opacity:1}
+}
+
+@keyframes dust{
+from{transform:translateY(0)}
+to{transform:translateY(-150px)}
+}
+
 </style>
 </head>
+
 <body>
+
 <div class="dust"></div>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="backgroundMusic" loop>
+<source src="love_story_x_golden_brown_[edit_audio](48k).mp3" type="audio/mpeg">
+</audio>
+
 <div class="container">
-<div class="line1 fade">Har chaabi ki ek manzil hoti hai.</div>
-<div class="key fade">🗝️</div>
-<div class="line2 fade">Sawaal bas itna hai...</div>
-<div class="line3 fade">...kya tum usse dhoondhna chahoge?</div>
+
+<div class="line1 fade">
+Har chaabi ki ek manzil hoti hai.
+</div>
+
+<div class="key fade">
+🗝️
+</div>
+
+<div class="line2 fade">
+Sawaal bas itna hai...
+</div>
+
+<div class="line3 fade">
+...kya tum usse dhoondhna chahoge?
+</div>
+
 <div class="buttons fade">
-<button onclick="alert('Theek hai 😤\n\nLekin maine bola hai to dekhna padega.')">Nahi</button>
-<button onclick="alert('Toh chaliye... 🔑')">Haan</button>
+
+<button onclick="alert('Theek hai 😤\n\nLekin maine bola hai to dekhna padega.')">
+Nahi
+</button>
+
+<button onclick="continueJourney()">
+Haan
+</button>
+
 </div>
+
 </div>
+
+
+<script>
+
+const audio =
+document.getElementById("backgroundMusic");
+
+audio.volume = 0.15;
+
+
+/* RESTORE MUSIC POSITION */
+
+const savedTime =
+localStorage.getItem("backgroundMusicTime");
+
+if(savedTime){
+    audio.currentTime = parseFloat(savedTime);
+}
+
+
+/* TRY TO CONTINUE MUSIC */
+
+audio.play().catch(function(){
+    console.log("Waiting for user interaction.");
+});
+
+
+/* SAVE POSITION */
+
+setInterval(function(){
+
+    if(!audio.paused){
+
+        localStorage.setItem(
+            "backgroundMusicTime",
+            audio.currentTime
+        );
+
+    }
+
+},500);
+
+
+/* HAAAN BUTTON */
+
+function continueJourney(){
+
+    localStorage.setItem(
+        "backgroundMusicTime",
+        audio.currentTime
+    );
+
+    window.location.href = "Scene 2.html";
+
+}
+
+</script>
+
 </body>
 </html>
