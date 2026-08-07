@@ -312,3 +312,278 @@ body{
     }
 
         }
+</style>
+</head>
+
+<body>
+
+<div class="dust"></div>
+
+
+<!-- HALLWAY -->
+
+<div class="container" id="hallwayScreen">
+
+<div class="title">
+Find the key...
+</div>
+
+<div class="hallway">
+
+<div class="door door1" onclick="openDoor(1,this)">Door 1</div>
+<div class="door door2" onclick="openDoor(2,this)">Door 2</div>
+<div class="door door3" onclick="openDoor(3,this)">Door 3</div>
+<div class="door door4" onclick="openDoor(4,this)">Door 4</div>
+<div class="door door5" onclick="openDoor(5,this)">Door 5</div>
+<div class="door door6" onclick="openDoor(6,this)">Door 6</div>
+
+
+<div class="light light1"></div>
+<div class="light light2"></div>
+<div class="light light3"></div>
+<div class="light light4"></div>
+<div class="light light5"></div>
+<div class="light light6"></div>
+
+</div>
+
+</div>
+
+
+<!-- AUDIO -->
+
+<audio id="doorSong"></audio>
+
+
+<!-- MEMORY SCREEN -->
+
+<div class="memoryScreen" id="memoryScreen">
+
+<div class="placeholder">
+MEMORY PHOTO
+</div>
+
+<div class="memoryMessage" id="memoryMessage">
+A memory waits here...
+</div>
+
+<button class="continueButton" onclick="closeMemory()">
+Continue
+</button>
+
+</div>
+
+
+<!-- KEY SCREEN -->
+
+<div class="keyScreen" id="keyScreen">
+
+<div class="keySymbol">
+🗝️
+</div>
+
+<div class="keyText">
+You found the key.
+</div>
+
+</div>
+
+
+<script>
+
+
+const messages = {
+
+1:"A memory waits here...",
+2:"Another moment worth remembering...",
+3:"Some moments stay with us...",
+4:"A little piece of the journey...",
+5:"Another memory...",
+6:"One more memory before the end..."
+
+};
+
+
+
+const songs = {
+
+1:"i_wanna_be_yours__tiktok_version_____arctic_monkeys_[_edit_audio_](48k).mp3",
+
+2:"chuttamalle_-_shilpa_rao_,_anirudh_ravichander_[edit_audio](48k).mp3",
+
+3:"Ishq_De_Fanniyar_-_Jyotica_[edit_audio](48k).mp3",
+
+4:"arz_kiya_hai_-_anuv_jain_x_lost_stories__coke_studio__[edit_audio](48k).mp3",
+
+5:"o_meri_laila_-_atif_aslam___jyotica_tangri_[_edit_audio_](48k).mp3",
+
+6:"suzume_theme_song_-_suzume_ft._toaka_[edit_audio](48k).mp3"
+
+};
+
+
+
+const songLimits = {
+
+1:60,
+2:61,
+3:64,
+4:36,
+5:56,
+6:30
+
+};
+
+
+
+let openedDoors=[];
+
+let currentDoor=null;
+
+
+
+function playSong(number){
+
+let audio=document.getElementById("doorSong");
+
+audio.pause();
+
+audio.currentTime=0;
+
+audio.src=songs[number];
+
+audio.play();
+
+
+setTimeout(function(){
+
+audio.pause();
+
+},songLimits[number]*1000);
+
+}
+
+
+
+
+function openDoor(number,door){
+
+
+if(openedDoors.includes(number)){
+return;
+}
+
+
+
+const remainingDoors =
+document.querySelectorAll('.door:not([style*="opacity: 0"])');
+
+
+
+if(remainingDoors.length===1){
+
+openKey();
+
+return;
+
+}
+
+
+
+currentDoor=door;
+
+
+openedDoors.push(number);
+
+
+
+const light =
+document.querySelector('.light'+number);
+
+
+if(light){
+
+light.style.opacity="0";
+
+}
+
+
+
+door.style.transform="scale(2.3)";
+
+door.style.opacity="0";
+
+
+
+playSong(number);
+
+
+
+setTimeout(function(){
+
+
+document.getElementById("hallwayScreen").style.display="none";
+
+
+document.getElementById("memoryMessage").innerHTML =
+messages[number];
+
+
+document.getElementById("memoryScreen").style.display="flex";
+
+
+},1000);
+
+
+
+}
+
+
+
+function closeMemory(){
+
+
+let audio=document.getElementById("doorSong");
+
+audio.pause();
+
+audio.currentTime=0;
+
+
+
+document.getElementById("memoryScreen").style.display="none";
+
+
+document.getElementById("hallwayScreen").style.display="flex";
+
+
+}
+
+
+
+function openKey(){
+
+
+let audio=document.getElementById("doorSong");
+
+audio.pause();
+
+
+document.getElementById("hallwayScreen").style.display="none";
+
+
+document.getElementById("memoryScreen").style.display="none";
+
+
+document.getElementById("keyScreen").style.display="flex";
+
+
+}
+
+
+
+</script>
+
+
+</body>
+</html>
