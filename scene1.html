@@ -7,95 +7,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-background:#000;
-color:#F5F1E8;
-font-family:'Libre Baskerville',serif;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-overflow:hidden;
-position:relative
+background:#000;color:#F5F1E8;font-family:'Libre Baskerville',serif;
+display:flex;justify-content:center;align-items:center;
+height:100vh;overflow:hidden;position:relative
 }
 
-.dust{
-position:absolute;
-inset:0;
+.dust{position:absolute;inset:0;
 background:
 radial-gradient(circle at 20% 30%,rgba(255,255,255,.16) 1px,transparent 1px),
 radial-gradient(circle at 70% 60%,rgba(255,255,255,.10) 1px,transparent 1px),
 radial-gradient(circle at 40% 80%,rgba(255,255,255,.12) 1px,transparent 1px);
 background-size:180px 180px;
-animation:dust 18s linear infinite;
-opacity:.35
-}
+animation:dust 18s linear infinite;opacity:.35}
 
-.container{
-text-align:center;
-z-index:2;
-width:90%;
-max-width:700px
-}
+.container{text-align:center;z-index:2;width:90%;max-width:700px}
 
-.fade{
-opacity:0;
-animation:fade 2s forwards
-}
+.fade{opacity:0;animation:fade 2s forwards}
 
 .line1{font-size:30px}
 
-.key{
-font-size:110px;
-margin:35px 0;
+.key{font-size:110px;margin:35px 0;
 text-shadow:0 0 20px rgba(255,215,120,.45);
-animation-delay:3s
-}
+animation-delay:3s}
 
-.line2{
-font-size:24px;
-animation-delay:5s
-}
+.line2{font-size:24px;animation-delay:5s}
 
-.line3{
-font-size:24px;
-margin:12px 0 40px;
-animation-delay:7s
-}
+.line3{font-size:24px;margin:12px 0 40px;animation-delay:7s}
 
-.buttons{
-animation-delay:9s
-}
+.buttons{animation-delay:9s}
 
 button{
-background:transparent;
-color:#F5F1E8;
-border:1px solid #F5F1E8;
-padding:12px 30px;
-border-radius:30px;
-margin:10px;
-font-size:18px;
-font-family:'Libre Baskerville',serif;
-cursor:pointer
-}
+background:transparent;color:#F5F1E8;border:1px solid #F5F1E8;
+padding:12px 30px;border-radius:30px;margin:10px;font-size:18px;
+font-family:'Libre Baskerville',serif;cursor:pointer}
 
-button:hover{
-background:#F5F1E8;
-color:#111
-}
+button:hover{background:#F5F1E8;color:#111}
 
-@keyframes fade{
-to{opacity:1}
-}
+@keyframes fade{to{opacity:1}}
 
-@keyframes dust{
-from{transform:translateY(0)}
-to{transform:translateY(-150px)}
-}
-
+@keyframes dust{from{transform:translateY(0)}to{transform:translateY(-150px)}}
 </style>
 </head>
 
@@ -141,7 +94,6 @@ Haan
 
 </div>
 
-
 <script>
 
 const audio =
@@ -150,24 +102,30 @@ document.getElementById("backgroundMusic");
 audio.volume = 0.15;
 
 
-/* RESTORE MUSIC POSITION */
+/* RESTORE POSITION FROM SCENE 0.1 */
 
 const savedTime =
 localStorage.getItem("backgroundMusicTime");
 
-if(savedTime){
-    audio.currentTime = parseFloat(savedTime);
+if(savedTime !== null){
+
+    audio.addEventListener("loadedmetadata", function(){
+
+        audio.currentTime =
+            parseFloat(savedTime);
+
+        audio.play().catch(function(){
+
+            console.log("Browser requires interaction for audio.");
+
+        });
+
+    }, {once:true});
+
 }
 
 
-/* TRY TO CONTINUE MUSIC */
-
-audio.play().catch(function(){
-    console.log("Waiting for user interaction.");
-});
-
-
-/* SAVE POSITION */
+/* SAVE CURRENT POSITION */
 
 setInterval(function(){
 
@@ -183,7 +141,7 @@ setInterval(function(){
 },500);
 
 
-/* HAAAN BUTTON */
+/* HAAAN */
 
 function continueJourney(){
 
@@ -192,7 +150,9 @@ function continueJourney(){
         audio.currentTime
     );
 
-    window.location.href = "scene2.html";
+    window.location.href =
+        "scene2.html";
+
 }
 
 </script>
