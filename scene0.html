@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Access</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:#F5F1E8;
+    font-family:'Libre Baskerville',serif;
+    min-height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.dust{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+    radial-gradient(circle at 20% 30%,rgba(255,255,255,.16) 1px,transparent 1px),
+    radial-gradient(circle at 70% 60%,rgba(255,255,255,.10) 1px,transparent 1px),
+    radial-gradient(circle at 40% 80%,rgba(255,255,255,.12) 1px,transparent 1px);
+
+    background-size:180px 180px;
+    animation:dustMove 18s linear infinite;
+    opacity:.35;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:600px;
+    text-align:center;
+}
+
+.title{
+    font-size:30px;
+    letter-spacing:2px;
+    margin-bottom:45px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    align-items:center;
+}
+
+.option{
+    width:220px;
+    padding:13px 20px;
+
+    background:transparent;
+    color:#F5F1E8;
+
+    border:1px solid #b99b5a;
+    border-radius:30px;
+
+    font-family:'Libre Baskerville',serif;
+    font-size:17px;
+
+    cursor:pointer;
+    transition:.4s;
+}
+
+.option:hover{
+    background:#b99b5a;
+    color:#000;
+    box-shadow:0 0 25px rgba(255,215,120,.5);
+}
+
+
+/* ACCESS SCREEN */
+
+.accessScreen{
+    display:none;
+
+    position:fixed;
+    inset:0;
+    z-index:100;
+
+    background:#000;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+}
+
+.accessIcon{
+    font-size:70px;
+    margin-bottom:25px;
+}
+
+.accessText{
+    font-size:25px;
+    letter-spacing:3px;
+}
+
+.accessSub{
+    margin-top:20px;
+    font-size:15px;
+    opacity:.7;
+}
+
+
+/* GRANTED */
+
+.granted{
+    color:#ffe6a3;
+
+    text-shadow:
+    0 0 15px #ffe6a3,
+    0 0 35px #ffe6a3;
+}
+
+
+/* LOADING BAR */
+
+.loadingBar{
+    width:230px;
+    height:4px;
+
+    margin-top:30px;
+
+    background:#211c13;
+
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.loadingProgress{
+    width:0%;
+    height:100%;
+
+    background:#ffe6a3;
+
+    box-shadow:
+    0 0 10px #ffe6a3,
+    0 0 20px #ffe6a3;
+
+    transition:width .25s linear;
+}
+
+
+/* FADE */
+
+.fadeOut{
+    animation:fadeOut 1s forwards;
+}
+
+@keyframes fadeOut{
+
+    to{
+        opacity:0;
+    }
+
+}
+
+@keyframes dustMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-150px);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .title{
+        font-size:24px;
+    }
+
+    .option{
+        width:200px;
+        font-size:15px;
+    }
+
+    .accessText{
+        font-size:21px;
+    }
+
+    .loadingBar{
+        width:200px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="dust"></div>
+
+
+<!-- MAIN -->
+
+<div class="container" id="mainScreen">
+
+    <div class="title">
+        Who are you?
+    </div>
+
+    <div class="options">
+
+        <button class="option" onclick="checkAnswer('chomu')">
+            Chomu
+        </button>
+
+        <button class="option" onclick="checkAnswer('aloo')">
+            Aloo Paloo
+        </button>
+
+        <button class="option" onclick="checkAnswer('berozgar')">
+            Berozgar
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ACCESS -->
+
+<div class="accessScreen" id="accessScreen">
+
+    <div class="accessIcon" id="accessIcon">
+        🚫
+    </div>
+
+    <div class="accessText" id="accessText">
+        ACCESS NOT GRANTED
+    </div>
+
+    <div class="accessSub" id="accessSub">
+        Choose again.
+    </div>
+
+    <div class="loadingBar" id="loadingBar" style="display:none;">
+        <div class="loadingProgress" id="loadingProgress"></div>
+    </div>
+
+</div>
+
+
+<script>
+
+function checkAnswer(answer){
+
+    const mainScreen =
+        document.getElementById("mainScreen");
+
+    const accessScreen =
+        document.getElementById("accessScreen");
+
+    const accessIcon =
+        document.getElementById("accessIcon");
+
+    const accessText =
+        document.getElementById("accessText");
+
+    const accessSub =
+        document.getElementById("accessSub");
+
+    const loadingBar =
+        document.getElementById("loadingBar");
+
+    const loadingProgress =
+        document.getElementById("loadingProgress");
+
+
+    /* WRONG ANSWER */
+
+    if(answer !== "aloo"){
+
+        accessIcon.innerHTML = "🚫";
+
+        accessText.innerHTML =
+            "ACCESS NOT GRANTED";
+
+        accessText.classList.remove("granted");
+
+        accessSub.innerHTML =
+            "Choose again.";
+
+        loadingBar.style.display = "none";
+
+        accessScreen.style.display = "flex";
+
+        setTimeout(function(){
+
+            accessScreen.style.display = "none";
+
+        },3000);
+
+        return;
+    }
+
+
+    /* CORRECT ANSWER */
+
+    mainScreen.style.display = "none";
+
+    accessScreen.classList.remove("fadeOut");
+
+    accessIcon.innerHTML = "✓";
+
+    accessText.innerHTML =
+        "ACCESS GRANTED";
+
+    accessText.classList.add("granted");
+
+    accessSub.innerHTML =
+        "AUTHENTICATING";
+
+    loadingBar.style.display = "block";
+
+    loadingProgress.style.width = "0%";
+
+    accessScreen.style.display = "flex";
+
+
+    /* LOADING ANIMATION */
+
+    let progress = 0;
+
+    const loading =
+        setInterval(function(){
+
+            progress += 5;
+
+            loadingProgress.style.width =
+                progress + "%";
+
+            if(progress >= 100){
+
+                clearInterval(loading);
+
+            }
+
+        },150);
+
+
+    /* DOT ANIMATION */
+
+    let dots = 0;
+
+    const dotTimer =
+        setInterval(function(){
+
+            dots++;
+
+            if(dots > 3){
+                dots = 1;
+            }
+
+            accessSub.innerHTML =
+                "AUTHENTICATING" + ".".repeat(dots);
+
+        },400);
+
+
+    /* ACCESS GRANTED */
+
+    setTimeout(function(){
+
+        clearInterval(dotTimer);
+
+        accessSub.innerHTML =
+            "MEMORY ACCESS GRANTED";
+
+    },3200);
+
+
+    /* GO TO SCENE 1 */
+
+    setTimeout(function(){
+
+        accessScreen.classList.add("fadeOut");
+
+    },3800);
+
+
+    setTimeout(function(){
+
+        window.location.href = "index.html";
+
+    },4800);
+
+}
+
+</script>
+
+</body>
+</html>
