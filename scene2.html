@@ -24,6 +24,8 @@ body{
     overflow:hidden;
 }
 
+/* DUST */
+
 .dust{
     position:fixed;
     inset:0;
@@ -37,6 +39,8 @@ body{
     animation:dustMove 18s linear infinite;
     opacity:.35;
 }
+
+/* HALLWAY */
 
 .container{
     position:relative;
@@ -55,7 +59,6 @@ body{
     letter-spacing:2px;
     margin-bottom:35px;
     text-align:center;
-    animation:fadeIn 2s ease forwards;
 }
 
 .hallway{
@@ -63,6 +66,8 @@ body{
     width:520px;
     height:520px;
 }
+
+/* DOORS */
 
 .door{
     position:absolute;
@@ -122,6 +127,8 @@ body{
     left:20px;
 }
 
+/* LIGHTS */
+
 .light{
     position:absolute;
 
@@ -132,8 +139,9 @@ body{
 
     background:#ffe6a3;
 
-    box-shadow:
-        0 0 25px #ffe6a3;
+    box-shadow:0 0 25px #ffe6a3;
+
+    transition:opacity 1s ease;
 }
 
 .light1{
@@ -166,29 +174,139 @@ body{
     left:95px;
 }
 
-@keyframes fadeIn{
+/* MEMORY SCREEN */
+
+.memoryScreen{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    z-index:1000;
+
+    background:#000;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:25px;
+}
+
+.placeholder{
+    width:280px;
+    height:360px;
+
+    border:2px solid #b99b5a;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,215,120,.12),
+            rgba(0,0,0,.95)
+        );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#b99b5a;
+
+    font-size:14px;
+    letter-spacing:1px;
+
+    box-shadow:0 0 35px rgba(255,215,120,.25);
+}
+
+.memoryMessage{
+    margin-top:28px;
+
+    max-width:600px;
+
+    font-size:20px;
+    line-height:1.7;
+}
+
+.continueButton{
+    margin-top:30px;
+
+    padding:12px 32px;
+
+    border-radius:30px;
+
+    background:transparent;
+
+    color:#F5F1E8;
+
+    border:1px solid #b99b5a;
+
+    font-family:'Libre Baskerville',serif;
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+.continueButton:hover{
+    background:#b99b5a;
+    color:#000;
+}
+
+/* KEY SCREEN */
+
+.keyScreen{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    z-index:1100;
+
+    background:#000;
+
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+}
+
+.keySymbol{
+    font-size:70px;
+
+    animation:keyGlow 2s ease-in-out infinite alternate;
+}
+
+.keyText{
+    margin-top:25px;
+
+    font-size:24px;
+    letter-spacing:3px;
+
+    color:#F5F1E8;
+}
+
+@keyframes keyGlow{
 
     from{
-        opacity:0;
+        opacity:.5;
+        transform:scale(.95);
+        text-shadow:0 0 10px #ffe6a3;
     }
 
     to{
         opacity:1;
+        transform:scale(1.05);
+        text-shadow:
+            0 0 20px #ffe6a3,
+            0 0 40px #ffe6a3;
     }
 
 }
 
-@keyframes dustMove{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(-150px);
-    }
-
-}
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -239,6 +357,15 @@ body{
         margin-bottom:25px;
     }
 
+    .placeholder{
+        width:230px;
+        height:300px;
+    }
+
+    .memoryMessage{
+        font-size:16px;
+    }
+
 }
 
 </style>
@@ -248,39 +375,29 @@ body{
 
 <div class="dust"></div>
 
-<div class="container">
+
+<!-- HALLWAY -->
+
+<div class="container" id="hallwayScreen">
 
     <div class="title">
-        Your journey begins... 
-
-        Find the key!
+        Find the key...
     </div>
 
     <div class="hallway">
 
-        <div class="door door1" onclick="openDoor(this)">
-            Door 1
-        </div>
+        <div class="door door1" onclick="openDoor(1,this)">Door 1</div>
 
-        <div class="door door2" onclick="openDoor(this)">
-            Door 2
-        </div>
+        <div class="door door2" onclick="openDoor(2,this)">Door 2</div>
 
-        <div class="door door3" onclick="openDoor(this)">
-            Door 3
-        </div>
+        <div class="door door3" onclick="openDoor(3,this)">Door 3</div>
 
-        <div class="door door4" onclick="openDoor(this)">
-            Door 4
-        </div>
+        <div class="door door4" onclick="openDoor(4,this)">Door 4</div>
 
-        <div class="door door5" onclick="openDoor(this)">
-            Door 5
-        </div>
+        <div class="door door5" onclick="openDoor(5,this)">Door 5</div>
 
-        <div class="door door6" onclick="openDoor(this)">
-            Door 6
-        </div>
+        <div class="door door6" onclick="openDoor(6,this)">Door 6</div>
+
 
         <div class="light light1"></div>
         <div class="light light2"></div>
@@ -293,12 +410,145 @@ body{
 
 </div>
 
+
+<!-- MEMORY SCREEN -->
+
+<div class="memoryScreen" id="memoryScreen">
+
+    <div class="placeholder">
+        MEMORY PHOTO
+    </div>
+
+    <div class="memoryMessage" id="memoryMessage">
+        A memory waits here...
+    </div>
+
+    <button class="continueButton" onclick="closeMemory()">
+        Continue
+    </button>
+
+</div>
+
+
+<!-- KEY SCREEN -->
+
+<div class="keyScreen" id="keyScreen">
+
+    <div class="keySymbol">
+        🗝️
+    </div>
+
+    <div class="keyText">
+        You found the key.
+    </div>
+
+</div>
+
+
 <script>
 
-function openDoor(door){
+const messages = {
+
+    1: "A memory waits here...",
+    2: "Another moment worth remembering...",
+    3: "Some moments stay with us...",
+    4: "A little piece of the journey...",
+    5: "Another memory...",
+    6: "One more memory before the end..."
+
+};
+
+
+let openedDoors = [];
+
+let currentDoor = null;
+
+
+function openDoor(number, door){
+
+    /* Prevent opening an already opened door */
+
+    if(openedDoors.includes(number)){
+        return;
+    }
+
+
+    /* Check how many doors remain BEFORE opening */
+
+    const remainingDoors =
+        document.querySelectorAll('.door:not([style*="opacity: 0"])');
+
+
+    /*
+       If only one door remains,
+       THIS door is automatically the KEY.
+    */
+
+    if(remainingDoors.length === 1){
+
+        openKey();
+
+        return;
+    }
+
+
+    /* Normal memory door */
+
+    currentDoor = door;
+
+    openedDoors.push(number);
+
+
+    /* Turn off matching light */
+
+    const light =
+        document.querySelector('.light' + number);
+
+    if(light){
+        light.style.opacity = "0";
+    }
+
+
+    /* Zoom door */
 
     door.style.transform = "scale(2.3)";
     door.style.opacity = "0";
+
+
+    /* Open memory */
+
+    setTimeout(function(){
+
+        document.getElementById("hallwayScreen").style.display = "none";
+
+        document.getElementById("memoryMessage").innerHTML =
+            messages[number];
+
+        document.getElementById("memoryScreen").style.display = "flex";
+
+    },1000);
+
+}
+
+
+function closeMemory(){
+
+    document.getElementById("memoryScreen").style.display = "none";
+
+    document.getElementById("hallwayScreen").style.display = "flex";
+
+}
+
+
+/* FINAL KEY */
+
+function openKey(){
+
+    document.getElementById("hallwayScreen").style.display = "none";
+
+    document.getElementById("memoryScreen").style.display = "none";
+
+    document.getElementById("keyScreen").style.display = "flex";
 
 }
 
