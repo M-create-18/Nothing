@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Access</title>
+<title>The Project</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
@@ -22,16 +22,16 @@ body{
     font-family:'Libre Baskerville',serif;
     min-height:100vh;
     overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
 }
+
+
+/* DUST */
 
 .dust{
     position:fixed;
     inset:0;
     pointer-events:none;
+    z-index:1;
 
     background:
     radial-gradient(circle at 20% 30%,rgba(255,255,255,.16) 1px,transparent 1px),
@@ -39,19 +39,44 @@ body{
     radial-gradient(circle at 40% 80%,rgba(255,255,255,.12) 1px,transparent 1px);
 
     background-size:180px 180px;
-    animation:dustMove 18s linear infinite;
+    animation:dust 18s linear infinite;
     opacity:.35;
 }
 
-.container{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:600px;
-    text-align:center;
+
+/* MUSIC */
+
+audio{
+    display:none;
 }
 
-.title{
+
+/* =========================
+   SCENE 0.1
+========================= */
+
+.scene0{
+    position:fixed;
+    inset:0;
+    z-index:10;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:#000;
+
+    transition:opacity 1s ease;
+}
+
+.scene0Content{
+    width:90%;
+    max-width:600px;
+}
+
+.scene0Title{
     font-size:30px;
     letter-spacing:2px;
     margin-bottom:45px;
@@ -78,24 +103,30 @@ body{
     font-size:17px;
 
     cursor:pointer;
+
     transition:.4s;
 }
 
 .option:hover{
     background:#b99b5a;
     color:#000;
-    box-shadow:0 0 25px rgba(255,215,120,.5);
+
+    box-shadow:
+    0 0 25px rgba(255,215,120,.5);
 }
 
 
-/* ACCESS SCREEN */
+/* =========================
+   ACCESS SCREEN
+========================= */
 
 .accessScreen{
     display:none;
 
     position:fixed;
     inset:0;
-    z-index:100;
+
+    z-index:50;
 
     background:#000;
 
@@ -122,9 +153,6 @@ body{
     opacity:.7;
 }
 
-
-/* GRANTED */
-
 .granted{
     color:#ffe6a3;
 
@@ -145,6 +173,7 @@ body{
     background:#211c13;
 
     border-radius:10px;
+
     overflow:hidden;
 }
 
@@ -162,22 +191,101 @@ body{
 }
 
 
-/* FADE */
+/* =========================
+   SCENE 1
+========================= */
 
-.fadeOut{
-    animation:fadeOut 1s forwards;
+.scene1{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    z-index:5;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
 }
 
-@keyframes fadeOut{
+.scene1Container{
+    width:90%;
+    max-width:700px;
+}
 
+.fade{
+    opacity:0;
+    animation:fade 2s forwards;
+}
+
+.line1{
+    font-size:30px;
+}
+
+.key{
+    font-size:110px;
+
+    margin:35px 0;
+
+    text-shadow:
+    0 0 20px rgba(255,215,120,.45);
+
+    animation-delay:3s;
+}
+
+.line2{
+    font-size:24px;
+    animation-delay:5s;
+}
+
+.line3{
+    font-size:24px;
+
+    margin:12px 0 40px;
+
+    animation-delay:7s;
+}
+
+.buttons{
+    animation-delay:9s;
+}
+
+.scene1 button{
+    background:transparent;
+
+    color:#F5F1E8;
+
+    border:1px solid #F5F1E8;
+
+    padding:12px 30px;
+
+    border-radius:30px;
+
+    margin:10px;
+
+    font-size:18px;
+
+    font-family:'Libre Baskerville',serif;
+
+    cursor:pointer;
+}
+
+.scene1 button:hover{
+    background:#F5F1E8;
+    color:#111;
+}
+
+
+/* ANIMATIONS */
+
+@keyframes fade{
     to{
-        opacity:0;
+        opacity:1;
     }
-
 }
 
-@keyframes dustMove{
-
+@keyframes dust{
     from{
         transform:translateY(0);
     }
@@ -185,7 +293,6 @@ body{
     to{
         transform:translateY(-150px);
     }
-
 }
 
 
@@ -193,7 +300,7 @@ body{
 
 @media(max-width:600px){
 
-    .title{
+    .scene0Title{
         font-size:24px;
     }
 
@@ -210,11 +317,23 @@ body{
         width:200px;
     }
 
+    .line1{
+        font-size:24px;
+    }
+
+    .key{
+        font-size:80px;
+    }
+
+    .line2,
+    .line3{
+        font-size:19px;
+    }
+
 }
 
 </style>
 </head>
-
 
 <body>
 
@@ -224,55 +343,130 @@ body{
 <!-- BACKGROUND MUSIC -->
 
 <audio id="backgroundMusic" loop>
-    <source src="love_story_x_golden_brown_[edit_audio](48k)" type="audio/mpeg">
+    <source src="love_story_x_golden_brown_[edit_audio](48k).mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- MAIN -->
+<!-- =========================
+     SCENE 0.1
+========================= -->
 
-<div class="container" id="mainScreen">
+<div class="scene0" id="scene0">
 
-    <div class="title">
-        Who are you?
-    </div>
+    <div class="scene0Content">
 
-    <div class="options">
+        <div class="scene0Title">
+            Who are you?
+        </div>
 
-        <button class="option" onclick="checkAnswer('chomu')">
-            Chomu
-        </button>
+        <div class="options">
 
-        <button class="option" onclick="checkAnswer('aloo')">
-            Aloo Paloo
-        </button>
+            <button
+                class="option"
+                onclick="checkAnswer('chomu')">
+                Chomu
+            </button>
 
-        <button class="option" onclick="checkAnswer('berozgar')">
-            Berozgar
-        </button>
+            <button
+                class="option"
+                onclick="checkAnswer('aloo')">
+                Aloo Paloo
+            </button>
+
+            <button
+                class="option"
+                onclick="checkAnswer('berozgar')">
+                Berozgar
+            </button>
+
+        </div>
 
     </div>
 
 </div>
 
 
-<!-- ACCESS -->
+<!-- =========================
+     ACCESS SCREEN
+========================= -->
 
-<div class="accessScreen" id="accessScreen">
+<div
+    class="accessScreen"
+    id="accessScreen">
 
-    <div class="accessIcon" id="accessIcon">
+    <div
+        class="accessIcon"
+        id="accessIcon">
         🚫
     </div>
 
-    <div class="accessText" id="accessText">
+    <div
+        class="accessText"
+        id="accessText">
         ACCESS NOT GRANTED
     </div>
 
-    <div class="accessSub" id="accessSub">
+    <div
+        class="accessSub"
+        id="accessSub">
         Choose again.
     </div>
 
-    <div class="loadingBar" id="loadingBar" style="display:none;">
-        <div class="loadingProgress" id="loadingProgress"></div>
+    <div
+        class="loadingBar"
+        id="loadingBar"
+        style="display:none;">
+
+        <div
+            class="loadingProgress"
+            id="loadingProgress">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     SCENE 1
+========================= -->
+
+<div
+    class="scene1"
+    id="scene1">
+
+    <div class="scene1Container">
+
+        <div class="line1 fade">
+            Har chaabi ki ek manzil hoti hai.
+        </div>
+
+        <div class="key fade">
+            🗝️
+        </div>
+
+        <div class="line2 fade">
+            Sawaal bas itna hai...
+        </div>
+
+        <div class="line3 fade">
+            ...kya tum usse dhoondhna chahoge?
+        </div>
+
+        <div class="buttons fade">
+
+            <button
+                onclick="alert('Theek hai 😤\n\nLekin maine bola hai to dekhna padega.')">
+                Nahi
+            </button>
+
+            <button
+                onclick="continueJourney()">
+                Haan
+            </button>
+
+        </div>
+
     </div>
 
 </div>
@@ -280,54 +474,68 @@ body{
 
 <script>
 
+/* MUSIC */
+
+const audio =
+document.getElementById("backgroundMusic");
+
+audio.volume = 0.15;
+
+
+/* CHECK ANSWER */
+
 function checkAnswer(answer){
 
-    const mainScreen =
-        document.getElementById("mainScreen");
+    const scene0 =
+    document.getElementById("scene0");
 
     const accessScreen =
-        document.getElementById("accessScreen");
+    document.getElementById("accessScreen");
 
     const accessIcon =
-        document.getElementById("accessIcon");
+    document.getElementById("accessIcon");
 
     const accessText =
-        document.getElementById("accessText");
+    document.getElementById("accessText");
 
     const accessSub =
-        document.getElementById("accessSub");
+    document.getElementById("accessSub");
 
     const loadingBar =
-        document.getElementById("loadingBar");
+    document.getElementById("loadingBar");
 
     const loadingProgress =
-        document.getElementById("loadingProgress");
-
-    const audio =
-        document.getElementById("backgroundMusic");
+    document.getElementById("loadingProgress");
 
 
     /* WRONG ANSWER */
 
     if(answer !== "aloo"){
 
-        accessIcon.innerHTML = "🚫";
+        accessIcon.innerHTML =
+        "🚫";
 
         accessText.innerHTML =
-            "ACCESS NOT GRANTED";
+        "ACCESS NOT GRANTED";
 
-        accessText.classList.remove("granted");
+        accessText.classList.remove(
+            "granted"
+        );
 
         accessSub.innerHTML =
-            "Choose again.";
+        "Choose again.";
 
-        loadingBar.style.display = "none";
+        loadingBar.style.display =
+        "none";
 
-        accessScreen.style.display = "flex";
+        accessScreen.style.display =
+        "flex";
+
 
         setTimeout(function(){
 
-            accessScreen.style.display = "none";
+            accessScreen.style.display =
+            "none";
 
         },3000);
 
@@ -337,106 +545,124 @@ function checkAnswer(answer){
 
     /* CORRECT ANSWER */
 
-    mainScreen.style.display = "none";
+    scene0.style.display =
+    "none";
 
-    accessScreen.classList.remove("fadeOut");
 
-    accessIcon.innerHTML = "✓";
+    accessIcon.innerHTML =
+    "✓";
 
     accessText.innerHTML =
-        "ACCESS GRANTED";
+    "ACCESS GRANTED";
 
-    accessText.classList.add("granted");
+    accessText.classList.add(
+        "granted"
+    );
 
     accessSub.innerHTML =
-        "AUTHENTICATING";
+    "AUTHENTICATING";
 
-    loadingBar.style.display = "block";
+    loadingBar.style.display =
+    "block";
 
-    loadingProgress.style.width = "0%";
+    loadingProgress.style.width =
+    "0%";
 
-    accessScreen.style.display = "flex";
+    accessScreen.style.display =
+    "flex";
 
 
-    /* START SOFT BACKGROUND MUSIC */
+    /* START MUSIC */
 
     audio.volume = 0.15;
 
     audio.currentTime = 0;
 
-    audio.play().catch(function(error){
+    audio.play().catch(function(){
 
-        console.log("Audio could not start:", error);
+        console.log(
+            "Audio could not start."
+        );
 
     });
 
 
-    /* LOADING ANIMATION */
+    /* LOADING */
 
     let progress = 0;
 
     const loading =
-        setInterval(function(){
+    setInterval(function(){
 
-            progress += 5;
+        progress += 5;
 
-            loadingProgress.style.width =
-                progress + "%";
+        loadingProgress.style.width =
+        progress + "%";
 
-            if(progress >= 100){
+        if(progress >= 100){
 
-                clearInterval(loading);
+            clearInterval(loading);
 
-            }
+        }
 
-        },150);
+    },150);
 
 
-    /* DOT ANIMATION */
+    /* AUTHENTICATING DOTS */
 
     let dots = 0;
 
     const dotTimer =
-        setInterval(function(){
+    setInterval(function(){
 
-            dots++;
+        dots++;
 
-            if(dots > 3){
-                dots = 1;
-            }
+        if(dots > 3){
+            dots = 1;
+        }
 
-            accessSub.innerHTML =
-                "AUTHENTICATING" + ".".repeat(dots);
+        accessSub.innerHTML =
+        "AUTHENTICATING" +
+        ".".repeat(dots);
 
-        },400);
+    },400);
 
 
-    /* ACCESS GRANTED */
+    /* GRANTED */
 
     setTimeout(function(){
 
         clearInterval(dotTimer);
 
         accessSub.innerHTML =
-            "MEMORY ACCESS GRANTED";
+        "MEMORY ACCESS GRANTED";
 
     },3200);
 
 
-    /* GO TO SCENE 1 */
+    /* SHOW SCENE 1 */
 
     setTimeout(function(){
 
-        accessScreen.classList.add("fadeOut");
+        accessScreen.style.display =
+        "none";
 
-    },3800);
-
-
-    setTimeout(function(){
-
-        window.location.href = "scene1.html";
+        document.getElementById(
+            "scene1"
+        ).style.display =
+        "flex";
 
     },4800);
+
+}
+
+
+/* SCENE 1 → SCENE 2 */
+
+function continueJourney(){
+
+    window.location.href =
+    "scene2.html";
 
 }
 
