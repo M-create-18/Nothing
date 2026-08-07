@@ -221,6 +221,13 @@ body{
 <div class="dust"></div>
 
 
+<!-- BACKGROUND MUSIC -->
+
+<audio id="backgroundMusic" loop>
+    <source src="love_story_x_golden_brown_[edit_audio](48k)" type="audio/mpeg">
+</audio>
+
+
 <!-- MAIN -->
 
 <div class="container" id="mainScreen">
@@ -296,6 +303,9 @@ function checkAnswer(answer){
     const loadingProgress =
         document.getElementById("loadingProgress");
 
+    const audio =
+        document.getElementById("backgroundMusic");
+
 
     /* WRONG ANSWER */
 
@@ -346,6 +356,19 @@ function checkAnswer(answer){
     loadingProgress.style.width = "0%";
 
     accessScreen.style.display = "flex";
+
+
+    /* START SOFT BACKGROUND MUSIC */
+
+    audio.volume = 0.15;
+
+    audio.currentTime = 0;
+
+    audio.play().catch(function(error){
+
+        console.log("Audio could not start:", error);
+
+    });
 
 
     /* LOADING ANIMATION */
@@ -420,4 +443,4 @@ function checkAnswer(answer){
 </script>
 
 </body>
-</html>
+    </html>
