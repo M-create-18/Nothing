@@ -1362,16 +1362,12 @@ function openDoor(number,door){
 
     /* LAST DOOR */
 
-    if(remainingDoors.length === 1){
+if(remainingDoors.length === 1){
 
-        backgroundPosition =
-        backgroundMusic.currentTime;
+    openKey();
 
-        backgroundMusic.pause();
+    return;
 
-        openKey();
-
-        return;
 
     }
 
