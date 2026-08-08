@@ -11,9 +11,9 @@
 
 <style>
 
-/* =========================
+/* ==================================================
    GLOBAL
-========================= */
+================================================== */
 
 *{
     margin:0;
@@ -51,9 +51,9 @@ body{
 }
 
 
-/* =========================
+/* ==================================================
    AUDIO
-========================= */
+================================================== */
 
 #backgroundMusic,
 #doorSong,
@@ -62,9 +62,9 @@ body{
 }
 
 
-/* =========================
+/* ==================================================
    SCENE 0
-========================= */
+================================================== */
 
 .scene0{
     position:fixed;
@@ -74,9 +74,11 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-
     text-align:center;
+
     background:#000;
+
+    transition:opacity 1.5s ease;
 }
 
 .scene0Content{
@@ -109,8 +111,8 @@ body{
 
     font-family:'Libre Baskerville',serif;
     font-size:17px;
-
     cursor:pointer;
+
     transition:.4s;
 }
 
@@ -121,9 +123,9 @@ body{
 }
 
 
-/* =========================
+/* ==================================================
    ACCESS
-========================= */
+================================================== */
 
 .accessScreen{
     display:none;
@@ -168,12 +170,10 @@ body{
 .loadingBar{
     width:230px;
     height:4px;
-
     margin-top:30px;
 
     background:#211c13;
     border-radius:10px;
-
     overflow:hidden;
 }
 
@@ -191,9 +191,9 @@ body{
 }
 
 
-/* =========================
+/* ==================================================
    SCENE 1
-========================= */
+================================================== */
 
 .scene1{
     display:none;
@@ -224,11 +224,9 @@ body{
 
 .key{
     font-size:110px;
-
     margin:35px 0;
 
-    text-shadow:
-    0 0 20px rgba(255,215,120,.45);
+    text-shadow:0 0 20px rgba(255,215,120,.45);
 
     animation-delay:3s;
 }
@@ -240,9 +238,7 @@ body{
 
 .line3{
     font-size:24px;
-
     margin:12px 0 40px;
-
     animation-delay:7s;
 }
 
@@ -252,13 +248,11 @@ body{
 
 .scene1 button{
     background:transparent;
-
     color:#F5F1E8;
 
     border:1px solid #F5F1E8;
 
     padding:12px 30px;
-
     border-radius:30px;
 
     margin:10px;
@@ -266,8 +260,9 @@ body{
     font-size:18px;
 
     font-family:'Libre Baskerville',serif;
-
     cursor:pointer;
+
+    transition:.4s;
 }
 
 .scene1 button:hover{
@@ -276,9 +271,9 @@ body{
 }
 
 
-/* =========================
-   SCENE 2
-========================= */
+/* ==================================================
+   SCENE 2 — HALLWAY
+================================================== */
 
 .hallwayScreen{
     display:none;
@@ -291,32 +286,31 @@ body{
     min-height:100vh;
 
     flex-direction:column;
-
     justify-content:center;
     align-items:center;
 
-    transition:opacity 1s ease;
+    opacity:0;
+
+    transition:opacity 1.5s ease;
 }
 
 .title{
     font-size:30px;
-
     letter-spacing:2px;
-
     margin-bottom:35px;
-
     text-align:center;
 }
 
 .hallway{
     position:relative;
-
     width:520px;
     height:520px;
 }
 
 
-/* DOORS */
+/* ==================================================
+   DOORS
+================================================== */
 
 .door{
     position:absolute;
@@ -328,11 +322,9 @@ body{
 
     border:2px solid #b99b5a;
 
-    box-shadow:
-    0 0 20px rgba(255,215,120,.3);
+    box-shadow:0 0 20px rgba(255,215,120,.3);
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -347,8 +339,7 @@ body{
 }
 
 .door:hover{
-    box-shadow:
-    0 0 40px rgba(255,215,120,.8);
+    box-shadow:0 0 40px rgba(255,215,120,.8);
 }
 
 .door1{
@@ -382,7 +373,9 @@ body{
 }
 
 
-/* LIGHTS */
+/* ==================================================
+   LIGHTS
+================================================== */
 
 .light{
     position:absolute;
@@ -430,32 +423,26 @@ body{
 }
 
 
-/* =========================
-   MEMORY SCREEN
-========================= */
+/* ==================================================
+   MEMORY
+================================================== */
 
 .memoryScreen{
     display:none;
 
     position:fixed;
     inset:0;
-
     z-index:1000;
 
     background:#000;
 
     justify-content:center;
     align-items:center;
-
     flex-direction:column;
 
     text-align:center;
 
     padding:25px;
-
-    opacity:1;
-
-    transition:opacity 1s ease;
 }
 
 .placeholder{
@@ -472,18 +459,15 @@ body{
     );
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
     color:#b99b5a;
 
     font-size:14px;
-
     letter-spacing:1px;
 
-    box-shadow:
-    0 0 35px rgba(255,215,120,.25);
+    box-shadow:0 0 35px rgba(255,215,120,.25);
 }
 
 .memoryMessage{
@@ -492,7 +476,6 @@ body{
     max-width:600px;
 
     font-size:20px;
-
     line-height:1.7;
 }
 
@@ -522,86 +505,15 @@ body{
 }
 
 
-/* =========================
-   LAST DOOR / KEY SCREEN
-========================= */
+/* ==================================================
+   SCENE 3
+================================================== */
 
-.keyScreen{
+.scene3{
     display:none;
 
     position:fixed;
     inset:0;
-
-    z-index:1100;
-
-    background:#000;
-
-    justify-content:center;
-    align-items:center;
-
-    flex-direction:column;
-
-    text-align:center;
-
-    transition:opacity 1.2s ease;
-}
-
-.keySymbol{
-    font-size:85px;
-
-    animation:keyGlow 2s ease-in-out infinite alternate;
-}
-
-.keyText{
-    margin-top:25px;
-
-    font-size:24px;
-
-    letter-spacing:3px;
-}
-
-.keySub{
-    margin-top:15px;
-
-    font-size:15px;
-
-    opacity:.65;
-}
-
-@keyframes keyGlow{
-
-    from{
-        opacity:.5;
-
-        transform:scale(.95);
-
-        text-shadow:
-        0 0 10px #ffe6a3;
-    }
-
-    to{
-        opacity:1;
-
-        transform:scale(1.05);
-
-        text-shadow:
-        0 0 20px #ffe6a3,
-        0 0 40px #ffe6a3;
-    }
-}
-
-
-/* =========================
-   FINAL SCENE
-========================= */
-
-.finalScreen{
-
-    display:none;
-
-    position:fixed;
-    inset:0;
-
     z-index:2000;
 
     background:#000;
@@ -609,213 +521,334 @@ body{
     justify-content:center;
     align-items:center;
 
-    flex-direction:column;
-
     text-align:center;
+
+    overflow:hidden;
+}
+
+.scene3Particles{
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.4;
+
+    background:
+    radial-gradient(circle at 20% 30%,rgba(255,215,120,.6) 1px,transparent 2px),
+    radial-gradient(circle at 70% 60%,rgba(255,215,120,.5) 1px,transparent 2px),
+    radial-gradient(circle at 40% 80%,rgba(255,215,120,.5) 1px,transparent 2px),
+    radial-gradient(circle at 85% 20%,rgba(255,215,120,.4) 1px,transparent 2px);
+
+    background-size:180px 180px;
+
+    animation:scene3Dust 12s linear infinite;
+}
+
+.scene3Content{
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+}
+
+
+/* KEY — SINGLE, NO PHOTO BOX */
+
+.scene3Key{
+    font-size:110px;
+
+    opacity:0;
+
+    transform:scale(.6);
+
+    transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+
+    text-shadow:
+    0 0 15px #ffe6a3,
+    0 0 40px #ffe6a3;
+}
+
+.scene3Key.visible{
+    opacity:1;
+    transform:scale(1);
+}
+
+
+/* NEW LOCK */
+
+.lockContainer{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%) scale(.6);
+
+    opacity:0;
+
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.lockContainer.visible{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+}
+
+.lockBody{
+    width:95px;
+    height:78px;
+
+    border:4px solid #b99b5a;
+
+    border-radius:14px;
+
+    background:#100d08;
+
+    box-shadow:
+    0 0 20px rgba(255,215,120,.35),
+    inset 0 0 20px rgba(255,215,120,.08);
+
+    position:relative;
+}
+
+.lockShackle{
+    position:absolute;
+
+    width:50px;
+    height:48px;
+
+    left:18px;
+    top:-40px;
+
+    border:4px solid #b99b5a;
+
+    border-bottom:none;
+
+    border-radius:28px 28px 0 0;
+
+    transition:
+    transform 1s ease,
+    opacity 1s ease;
+}
+
+.lockKeyhole{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-35%);
+
+    font-size:25px;
+
+    color:#ffe6a3;
+
+    text-shadow:0 0 15px #ffe6a3;
+}
+
+.lockContainer.unlock .lockShackle{
+    transform:translateY(-35px) rotate(-12deg);
+}
+
+.lockContainer.unlock .lockBody{
+    animation:lockGlow .8s ease forwards;
+}
+
+@keyframes lockGlow{
+
+    0%{
+        box-shadow:0 0 20px rgba(255,215,120,.35);
+    }
+
+    50%{
+        box-shadow:
+        0 0 35px #ffe6a3,
+        0 0 70px rgba(255,215,120,.7);
+    }
+
+    100%{
+        box-shadow:0 0 0 rgba(255,215,120,0);
+        opacity:0;
+    }
 }
 
 
 /* WAIT MESSAGE */
 
 .waitMessage{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:25px;
+
+    letter-spacing:2px;
 
     opacity:0;
 
-    font-size:24px;
+    white-space:nowrap;
 
-    letter-spacing:3px;
-
-    transition:opacity 1.8s ease;
+    transition:opacity 1.2s ease;
 }
 
-.waitMessage.show{
+.waitMessage.visible{
     opacity:1;
 }
 
 
-/* LOCK */
+/* ==================================================
+   BIRTHDAY
+================================================== */
 
-.lockContainer{
+.birthdayScreen{
+    display:none;
 
-    position:relative;
+    position:fixed;
+    inset:0;
 
-    width:180px;
-    height:220px;
-
-    opacity:0;
-
-    transform:scale(.65);
-
-    transition:
-    opacity 1.8s ease,
-    transform 1.8s ease;
-}
-
-.lockContainer.show{
-
-    opacity:1;
-
-    transform:scale(1);
-}
-
-.lockBody{
-
-    position:absolute;
-
-    bottom:5px;
-    left:35px;
-
-    width:110px;
-    height:110px;
-
-    border:3px solid #b99b5a;
-
-    border-radius:15px;
-
-    background:#0c0a07;
-
-    box-shadow:
-    0 0 25px rgba(255,215,120,.35),
-    inset 0 0 25px rgba(255,215,120,.08);
-}
-
-.lockShackle{
-
-    position:absolute;
-
-    top:20px;
-    left:60px;
-
-    width:60px;
-    height:80px;
-
-    border:7px solid #b99b5a;
-
-    border-bottom:none;
-
-    border-radius:35px 35px 0 0;
-
-    transform-origin:right bottom;
-
-    transition:
-    transform 1.5s ease,
-    opacity 1s ease;
-}
-
-.lockShackle.open{
-
-    transform:
-    translateY(-32px)
-    rotate(20deg);
-}
-
-.lockHole{
-
-    position:absolute;
-
-    top:43px;
-    left:82px;
-
-    width:14px;
-    height:27px;
-
-    border-radius:8px;
+    z-index:3000;
 
     background:#000;
 
-    box-shadow:
-    0 0 12px rgba(255,215,120,.5);
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
 }
 
+.birthdayContent{
+    width:90%;
+    max-width:700px;
 
-/* FINAL KEY */
+    position:relative;
+    z-index:2;
+}
 
-.finalKey{
+.birthdayTitle{
+    font-size:42px;
 
-    position:absolute;
-
-    font-size:65px;
-
-    opacity:0;
-
-    transform:
-    translateX(-190px)
-    rotate(-25deg);
-
-    transition:
-    transform 3s ease,
-    opacity 1s ease;
+    color:#ffe6a3;
 
     text-shadow:
     0 0 15px #ffe6a3,
-    0 0 35px #ffe6a3;
-}
-
-.finalKey.move{
-
-    opacity:1;
-
-    transform:
-    translateX(0)
-    rotate(0deg);
-}
-
-.finalKey.unlock{
-
-    transform:
-    translateX(0)
-    scale(.65);
+    0 0 35px rgba(255,215,120,.6);
 
     opacity:0;
 
-    transition:1s;
+    transform:scale(.85);
+
+    transition:
+    opacity 2s ease,
+    transform 2s ease;
 }
 
+.birthdayTitle.visible{
+    opacity:1;
+    transform:scale(1);
+}
 
-/* FINAL TEXT */
+.birthdayMessage{
+    margin-top:35px;
 
-.finalText{
-
-    position:absolute;
-
-    bottom:17%;
-
-    font-size:24px;
-
-    letter-spacing:4px;
+    font-size:19px;
+    line-height:1.8;
 
     opacity:0;
 
     transition:opacity 2s ease;
 }
 
-.finalText.show{
+.birthdayMessage.visible{
     opacity:1;
 }
 
+.birthdayButtons{
+    margin-top:40px;
 
-/* CONFETTI */
+    opacity:0;
+
+    transition:opacity 2s ease;
+}
+
+.birthdayButtons.visible{
+    opacity:1;
+}
+
+.birthdayButtons button{
+    background:transparent;
+
+    color:#F5F1E8;
+
+    border:1px solid #b99b5a;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    font-family:'Libre Baskerville',serif;
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+.birthdayButtons button:hover{
+    background:#b99b5a;
+    color:#000;
+}
+
+
+/* ==================================================
+   CONFETTI
+================================================== */
 
 .confetti{
+    position:absolute;
 
-    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:1;
+}
+
+.confettiPiece{
+    position:absolute;
+
+    width:7px;
+    height:13px;
 
     top:-20px;
 
-    width:8px;
-    height:14px;
+    background:#ffe6a3;
 
-    z-index:5000;
-
-    animation:
-    confettiFall 4s linear forwards;
+    animation:confettiFall 3s linear forwards;
 }
 
 @keyframes confettiFall{
 
     0%{
         transform:
-        translateY(0)
+        translateY(-20px)
         rotate(0deg);
 
         opacity:1;
@@ -831,17 +864,31 @@ body{
 }
 
 
-/* FADE */
+/* ==================================================
+   ANIMATIONS
+================================================== */
 
 @keyframes fade{
-
     to{
         opacity:1;
     }
 }
 
+@keyframes scene3Dust{
 
-/* MOBILE */
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-150px);
+    }
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media(max-width:600px){
 
@@ -875,14 +922,21 @@ body{
         transform:scale(.72);
     }
 
+    .birthdayTitle{
+        font-size:32px;
+    }
+
+    .birthdayMessage{
+        font-size:16px;
+    }
+
+    .scene3Key{
+        font-size:80px;
+    }
+
     .waitMessage{
         font-size:19px;
     }
-
-    .keyText{
-        font-size:20px;
-    }
-
 }
 
 </style>
@@ -895,34 +949,27 @@ body{
 <div class="dust"></div>
 
 
-<!-- =========================
+<!-- ==================================================
      AUDIO
-========================= -->
+================================================== -->
 
 <audio id="backgroundMusic" loop>
-
     <source
         src="love_story_x_golden_brown_[edit_audio](48k)"
         type="audio/mpeg">
-
 </audio>
-
 
 <audio id="doorSong"></audio>
 
-
-<audio id="finalSong">
-
-    <source
-        src="SHUBHAARAMBH__from__Kai_Po_Che___-_Navratri_Special_[edit_audio](48k)"
-        type="audio/mpeg">
-
+<audio
+    id="finalSong"
+    src="SHUBHAARAMBH__from__Kai_Po_Che___-_Navratri_Special_[edit_audio](48k)">
 </audio>
 
 
-<!-- =========================
+<!-- ==================================================
      SCENE 0
-========================= -->
+================================================== -->
 
 <div class="scene0" id="scene0">
 
@@ -959,9 +1006,9 @@ body{
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      ACCESS
-========================= -->
+================================================== -->
 
 <div class="accessScreen" id="accessScreen">
 
@@ -992,9 +1039,9 @@ body{
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      SCENE 1
-========================= -->
+================================================== -->
 
 <div class="scene1" id="scene1">
 
@@ -1033,9 +1080,9 @@ body{
 </div>
 
 
-<!-- =========================
+<!-- ==================================================
      SCENE 2
-========================= -->
+================================================== -->
 
 <div
     class="hallwayScreen"
@@ -1047,39 +1094,33 @@ body{
 
     <div class="hallway">
 
-        <div
-            class="door door1"
-            onclick="openDoor(1,this)">
+        <div class="door door1"
+             onclick="openDoor(1,this)">
             Door 1
         </div>
 
-        <div
-            class="door door2"
-            onclick="openDoor(2,this)">
+        <div class="door door2"
+             onclick="openDoor(2,this)">
             Door 2
         </div>
 
-        <div
-            class="door door3"
-            onclick="openDoor(3,this)">
+        <div class="door door3"
+             onclick="openDoor(3,this)">
             Door 3
         </div>
 
-        <div
-            class="door door4"
-            onclick="openDoor(4,this)">
+        <div class="door door4"
+             onclick="openDoor(4,this)">
             Door 4
         </div>
 
-        <div
-            class="door door5"
-            onclick="openDoor(5,this)">
+        <div class="door door5"
+             onclick="openDoor(5,this)">
             Door 5
         </div>
 
-        <div
-            class="door door6"
-            onclick="openDoor(6,this)">
+        <div class="door door6"
+             onclick="openDoor(6,this)">
             Door 6
         </div>
 
@@ -1096,9 +1137,9 @@ body{
 </div>
 
 
-<!-- =========================
-     NORMAL MEMORY
-========================= -->
+<!-- ==================================================
+     MEMORY
+================================================== -->
 
 <div
     class="memoryScreen"
@@ -1117,95 +1158,105 @@ body{
     <button
         class="continueButton"
         onclick="closeMemory()">
-
         Continue
-
     </button>
 
 </div>
 
 
-<!-- =========================
-     LAST DOOR KEY SCREEN
-========================= -->
+<!-- ==================================================
+     SCENE 3
+================================================== -->
 
 <div
-    class="keyScreen"
-    id="keyScreen">
+    class="scene3"
+    id="scene3">
 
-    <div class="keySymbol">
-        🗝️
+    <div class="scene3Particles"></div>
+
+    <div class="scene3Content">
+
+        <!-- SINGLE KEY -->
+        <div
+            class="scene3Key"
+            id="scene3Key">
+            🗝️
+        </div>
+
+        <!-- NEW LOCK -->
+        <div
+            class="lockContainer"
+            id="lockContainer">
+
+            <div class="lockShackle"></div>
+
+            <div class="lockBody">
+
+                <div class="lockKeyhole">
+                    •
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- WAIT MESSAGE -->
+        <div
+            class="waitMessage"
+            id="waitMessage">
+            Your wait is over.
+        </div>
+
     </div>
-
-    <div class="keyText">
-        You found the key.
-    </div>
-
-    <div class="keySub">
-        The final lock is waiting.
-    </div>
-
-    <button
-        class="continueButton"
-        onclick="startFinalScene()">
-
-        Continue
-
-    </button>
 
 </div>
 
 
-<!-- =========================
-     FINAL SCENE
-========================= -->
+<!-- ==================================================
+     BIRTHDAY ENDING
+================================================== -->
 
 <div
-    class="finalScreen"
-    id="finalScreen">
-
+    class="birthdayScreen"
+    id="birthdayScreen">
 
     <div
-        class="waitMessage"
-        id="waitMessage">
-
-        Your wait is over.
-
+        class="confetti"
+        id="confetti">
     </div>
 
-
-    <div
-        class="lockContainer"
-        id="lockContainer">
+    <div class="birthdayContent">
 
         <div
-            class="lockShackle"
-            id="lockShackle">
+            class="birthdayTitle"
+            id="birthdayTitle">
+            Happy Birthday ❤️
         </div>
 
-        <div class="lockBody">
+        <div
+            class="birthdayMessage"
+            id="birthdayMessage">
 
-            <div class="lockHole"></div>
+            Thank you for opening every memory.
+
+            <br><br>
+
+            I hope this year brings you happiness,
+            peace, and countless beautiful moments.
 
         </div>
 
-    </div>
+        <!-- ONLY START AGAIN -->
 
+        <div
+            class="birthdayButtons"
+            id="birthdayButtons">
 
-    <div
-        class="finalKey"
-        id="finalKey">
+            <button onclick="location.reload()">
+                Start Again
+            </button>
 
-        🗝️
-
-    </div>
-
-
-    <div
-        class="finalText"
-        id="finalText">
-
-        THE DOOR IS OPEN.
+        </div>
 
     </div>
 
@@ -1214,10 +1265,9 @@ body{
 
 <script>
 
-
-/* =========================
+/* ==================================================
    AUDIO
-========================= */
+================================================== */
 
 const backgroundMusic =
 document.getElementById("backgroundMusic");
@@ -1230,12 +1280,12 @@ document.getElementById("finalSong");
 
 backgroundMusic.volume = 0.15;
 doorSong.volume = 0.30;
-finalSong.volume = 0.35;
+finalSong.volume = 0.30;
 
 
-/* =========================
+/* ==================================================
    SCENE 0
-========================= */
+================================================== */
 
 function checkAnswer(answer){
 
@@ -1279,7 +1329,6 @@ function checkAnswer(answer){
         access.style.display =
         "flex";
 
-
         setTimeout(function(){
 
             access.style.display =
@@ -1318,9 +1367,7 @@ function checkAnswer(answer){
     backgroundMusic.currentTime = 0;
 
     backgroundMusic.play().catch(function(){
-
         console.log("Audio blocked.");
-
     });
 
 
@@ -1335,9 +1382,7 @@ function checkAnswer(answer){
         value + "%";
 
         if(value >= 100){
-
             clearInterval(loader);
-
         }
 
     },150);
@@ -1376,53 +1421,57 @@ function checkAnswer(answer){
         access.style.display =
         "none";
 
-        document.getElementById("scene1")
-        .style.display = "flex";
+        document.getElementById("scene1").style.display =
+        "flex";
 
     },4800);
-
 }
 
 
-/* =========================
+/* ==================================================
    SCENE 1
-========================= */
+================================================== */
 
 function nahi(){
 
     alert(
         "Theek hai 😤\n\nLekin maine bola hai to dekhna padega."
     );
-
 }
 
 
 function goToScene2(){
 
-    document.getElementById("scene1")
-    .style.display = "none";
+    document.getElementById("scene1").style.display =
+    "none";
 
-    document.getElementById("hallwayScreen")
-    .style.display = "flex";
+    const hallway =
+    document.getElementById("hallwayScreen");
 
+    hallway.style.display =
+    "flex";
+
+    setTimeout(function(){
+
+        hallway.style.opacity =
+        "1";
+
+    },50);
 }
 
 
-/* =========================
+/* ==================================================
    SCENE 2
-========================= */
+================================================== */
 
 const messages = {
 
     1:"A memory waits here...",
-
     2:"Another moment worth remembering...",
-
     3:"Some moments stay with us...",
-
     4:"A little piece of the journey...",
-
-    5:"Another memory..."
+    5:"A little piece of the journey...",
+    6:"One more memory before the end..."
 
 };
 
@@ -1437,7 +1486,9 @@ const songs = {
 
     4:"arz_kiya_hai_-_anuv_jain_x_lost_stories__coke_studio__[edit_audio](48k)",
 
-    5:"o_meri_laila_-_atif_aslam___jyotica_tangri_[_edit_audio_](48k)"
+    5:"o_meri_laila_-_atif_aslam___jyotica_tangri_[_edit_audio_](48k)",
+
+    6:"suzume_theme_song_-_suzume_ft._toaka_[edit_audio](48k)"
 
 };
 
@@ -1448,7 +1499,8 @@ const songLimits = {
     2:61,
     3:64,
     4:36,
-    5:56
+    5:56,
+    6:30
 
 };
 
@@ -1458,56 +1510,41 @@ let openedDoors = [];
 let backgroundPosition = 0;
 
 
-/* =========================
+/* ==================================================
    OPEN DOOR
-========================= */
+================================================== */
 
 function openDoor(number,door){
+
+    /* Prevent double clicks */
 
     if(openedDoors.includes(number)){
         return;
     }
 
 
-    const remainingDoors =
-    document.querySelectorAll(
-        '.door:not([style*="opacity: 0"])'
-    );
-
-
-    /* LAST REMAINING DOOR */
-
-    if(remainingDoors.length === 1){
-
-        startKeyScene();
-
-        return;
-
-    }
-
-
-    openedDoors.push(number);
-
+    /* SAVE CURRENT BACKGROUND POSITION */
 
     backgroundPosition =
     backgroundMusic.currentTime;
 
 
-    backgroundMusic.pause();
+    /* THIS DOOR IS NOW OPENED */
 
+    openedDoors.push(number);
+
+
+    /* LIGHT OFF */
 
     const light =
-    document.querySelector(
-        '.light' + number
-    );
+    document.querySelector(".light" + number);
 
     if(light){
-
-        light.style.opacity =
-        "0";
-
+        light.style.opacity = "0";
     }
 
+
+    /* DOOR ANIMATION */
 
     door.style.transform =
     "scale(2.3)";
@@ -1515,9 +1552,21 @@ function openDoor(number,door){
     door.style.opacity =
     "0";
 
+    door.style.pointerEvents =
+    "none";
+
+
+    /* STOP BACKGROUND */
+
+    backgroundMusic.pause();
+
+
+    /* PLAY DOOR SONG */
 
     playDoorSong(number);
 
+
+    /* SHOW MEMORY */
 
     setTimeout(function(){
 
@@ -1525,6 +1574,11 @@ function openDoor(number,door){
             "hallwayScreen"
         ).style.display =
         "none";
+
+        document.getElementById(
+            "hallwayScreen"
+        ).style.opacity =
+        "0";
 
 
         document.getElementById(
@@ -1543,9 +1597,9 @@ function openDoor(number,door){
 }
 
 
-/* =========================
+/* ==================================================
    DOOR SONG
-========================= */
+================================================== */
 
 function playDoorSong(number){
 
@@ -1556,13 +1610,10 @@ function playDoorSong(number){
     doorSong.src =
     songs[number];
 
-    doorSong.volume =
-    0.30;
+    doorSong.volume = 0.30;
 
     doorSong.play().catch(function(){
-
         console.log("Door song blocked.");
-
     });
 
 
@@ -1575,9 +1626,9 @@ function playDoorSong(number){
 }
 
 
-/* =========================
-   NORMAL MEMORY CONTINUE
-========================= */
+/* ==================================================
+   CLOSE MEMORY
+================================================== */
 
 function closeMemory(){
 
@@ -1592,10 +1643,34 @@ function closeMemory(){
     "none";
 
 
-    document.getElementById(
-        "hallwayScreen"
-    ).style.display =
+    /*
+       IMPORTANT:
+       If this was the LAST door,
+       go to Scene 3.
+    */
+
+    if(openedDoors.length === 6){
+
+        startScene3();
+
+        return;
+    }
+
+
+    /* Otherwise return to hallway */
+
+    const hallway =
+    document.getElementById("hallwayScreen");
+
+    hallway.style.display =
     "flex";
+
+    setTimeout(function(){
+
+        hallway.style.opacity =
+        "1";
+
+    },50);
 
 
     backgroundMusic.currentTime =
@@ -1605,19 +1680,17 @@ function closeMemory(){
     0.15;
 
     backgroundMusic.play().catch(function(){
-
         console.log("Background music waiting.");
-
     });
 
 }
 
 
-/* =========================
-   LAST DOOR
-========================= */
+/* ==================================================
+   SCENE 3
+================================================== */
 
-function startKeyScene(){
+function startScene3(){
 
     backgroundMusic.pause();
 
@@ -1626,203 +1699,224 @@ function startKeyScene(){
     doorSong.currentTime = 0;
 
 
-    document.getElementById(
-        "hallwayScreen"
-    ).style.display =
-    "none";
+    const scene3 =
+    document.getElementById("scene3");
 
-
-    document.getElementById(
-        "memoryScreen"
-    ).style.display =
-    "none";
-
-
-    document.getElementById(
-        "keyScreen"
-    ).style.display =
-    "flex";
-
-}
-
-
-/* =========================
-   FINAL SEQUENCE
-========================= */
-
-function startFinalScene(){
-
-    const keyScreen =
-    document.getElementById("keyScreen");
-
-    const finalScreen =
-    document.getElementById("finalScreen");
-
-    const waitMessage =
-    document.getElementById("waitMessage");
+    const key =
+    document.getElementById("scene3Key");
 
     const lock =
     document.getElementById("lockContainer");
 
-    const key =
-    document.getElementById("finalKey");
-
-    const shackle =
-    document.getElementById("lockShackle");
+    const wait =
+    document.getElementById("waitMessage");
 
 
-    /* FADE OUT KEY SCREEN */
+    scene3.style.display =
+    "flex";
 
-    keyScreen.style.opacity = "0";
+
+    /* Fade into Scene 3 */
+
+    setTimeout(function(){
+
+        scene3.style.opacity =
+        "1";
+
+    },50);
+
+
+    /*
+       KEY APPEARS FIRST
+       No photo box.
+    */
+
+    setTimeout(function(){
+
+        key.classList.add("visible");
+
+    },500);
+
+
+    /*
+       Key disappears smoothly,
+       then lock appears.
+    */
+
+    setTimeout(function(){
+
+        key.classList.remove("visible");
+
+    },2500);
 
 
     setTimeout(function(){
 
-        keyScreen.style.display =
+        lock.classList.add("visible");
+
+    },3300);
+
+
+    /*
+       Unlock animation
+    */
+
+    setTimeout(function(){
+
+        lock.classList.add("unlock");
+
+    },5200);
+
+
+    /*
+       Blank / transition moment
+       Your wait is over.
+    */
+
+    setTimeout(function(){
+
+        wait.classList.add("visible");
+
+    },6500);
+
+
+    /*
+       Final ending starts
+       AFTER the Scene 3 transition.
+    */
+
+    setTimeout(function(){
+
+        scene3.style.opacity =
+        "0";
+
+    },8500);
+
+
+    setTimeout(function(){
+
+        scene3.style.display =
         "none";
 
-        finalScreen.style.display =
-        "flex";
+        startFinalSong();
 
-        finalScreen.style.opacity =
-        "1";
-
-
-        /* =====================
-           SONG STARTS HERE
-        ===================== */
-
-        finalSong.currentTime = 0;
-
-        finalSong.play().catch(function(){
-
-            console.log("Final song blocked.");
-
-        });
-
-
-        /* =====================
-           0–5 SEC
-           BLACKOUT
-        ===================== */
-
-        setTimeout(function(){
-
-            waitMessage.classList.add("show");
-
-        },1000);
-
-
-        /* =====================
-           5 SEC
-           LOCK APPEARS
-        ===================== */
-
-        setTimeout(function(){
-
-            waitMessage.classList.remove("show");
-
-            lock.classList.add("show");
-
-        },5000);
-
-
-        /* =====================
-           9 SEC
-           KEY ENTERS
-        ===================== */
-
-        setTimeout(function(){
-
-            key.classList.add("move");
-
-        },9000);
-
-
-        /* =====================
-           14 SEC
-           UNLOCK
-        ===================== */
-
-        setTimeout(function(){
-
-            key.classList.add("unlock");
-
-            shackle.classList.add("open");
-
-        },14000);
-
-
-        /* =====================
-           18 SEC
-           LOCK FADES
-        ===================== */
-
-        setTimeout(function(){
-
-            lock.style.opacity =
-            "0";
-
-        },18000);
-
-
-        /* =====================
-           24 SEC
-           CONFETTI
-        ===================== */
-
-        setTimeout(function(){
-
-            createConfetti();
-
-            document.getElementById(
-                "finalText"
-            ).classList.add("show");
-
-        },24000);
-
-
-    },1200);
+    },10000);
 
 }
 
 
-/* =========================
+/* ==================================================
+   FINAL SONG
+================================================== */
+
+function startFinalSong(){
+
+    finalSong.pause();
+
+    /*
+       START SONG FROM 16 SECONDS
+    */
+
+    finalSong.currentTime = 16;
+
+    finalSong.volume = 0.30;
+
+    finalSong.play().catch(function(){
+        console.log("Final song blocked.");
+    });
+
+
+    const birthday =
+    document.getElementById("birthdayScreen");
+
+    birthday.style.display =
+    "flex";
+
+
+    setTimeout(function(){
+
+        birthday.style.opacity =
+        "1";
+
+    },50);
+
+
+    /*
+       9 SECONDS AFTER SONG START:
+       CONFETTI + HAPPY BIRTHDAY
+    */
+
+    setTimeout(function(){
+
+        document.getElementById(
+            "birthdayTitle"
+        ).classList.add("visible");
+
+
+        document.getElementById(
+            "birthdayMessage"
+        ).classList.add("visible");
+
+
+        createConfetti();
+
+
+    },9000);
+
+
+    /*
+       Start Again appears slightly
+       after the birthday message.
+    */
+
+    setTimeout(function(){
+
+        document.getElementById(
+            "birthdayButtons"
+        ).classList.add("visible");
+
+    },10500);
+
+}
+
+
+/* ==================================================
    CONFETTI
-========================= */
+================================================== */
 
 function createConfetti(){
 
-    for(let i=0;i<120;i++){
+    const container =
+    document.getElementById("confetti");
+
+
+    container.innerHTML = "";
+
+
+    for(let i = 0; i < 90; i++){
 
         const piece =
         document.createElement("div");
 
         piece.className =
-        "confetti";
+        "confettiPiece";
+
 
         piece.style.left =
-        Math.random()*100 + "vw";
+        Math.random() * 100 + "%";
+
 
         piece.style.animationDelay =
-        Math.random()*1.2 + "s";
-
-        piece.style.background =
-        [
-            "#ffe6a3",
-            "#b99b5a",
-            "#ffffff",
-            "#d8c49a"
-        ][Math.floor(Math.random()*4)];
-
-        document.body.appendChild(piece);
+        Math.random() * 1.5 + "s";
 
 
-        setTimeout(function(){
+        piece.style.transform =
+        "rotate(" +
+        Math.random() * 360 +
+        "deg)";
 
-            piece.remove();
 
-        },6000);
+        container.appendChild(piece);
 
     }
 
