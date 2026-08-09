@@ -41,9 +41,7 @@ body{
     radial-gradient(circle at 40% 80%,rgba(255,255,255,.12) 1px,transparent 1px);
 
     background-size:180px 180px;
-
     animation:dustMove 18s linear infinite;
-
     opacity:.35;
 }
 
@@ -72,13 +70,11 @@ audio{
     display:flex;
     justify-content:center;
     align-items:center;
-
     text-align:center;
 
     background:#000;
 
     opacity:1;
-
     transition:opacity 1.5s ease;
 }
 
@@ -102,21 +98,16 @@ audio{
 
 .option{
     width:220px;
-
     padding:13px 20px;
 
     background:transparent;
-
     color:#F5F1E8;
 
     border:1px solid #b99b5a;
-
     border-radius:30px;
 
     font-family:'Libre Baskerville',serif;
-
     font-size:17px;
-
     cursor:pointer;
 
     transition:.4s;
@@ -125,9 +116,7 @@ audio{
 .option:hover{
     background:#b99b5a;
     color:#000;
-
-    box-shadow:
-    0 0 25px rgba(255,215,120,.5);
+    box-shadow:0 0 25px rgba(255,215,120,.5);
 }
 
 /* =========================
@@ -139,20 +128,17 @@ audio{
 
     position:fixed;
     inset:0;
-
     z-index:50;
 
     background:#000;
 
     justify-content:center;
     align-items:center;
-
     flex-direction:column;
 
     text-align:center;
 
     opacity:0;
-
     transition:opacity 1s ease;
 }
 
@@ -183,13 +169,10 @@ audio{
 .loadingBar{
     width:230px;
     height:4px;
-
     margin-top:30px;
 
     background:#211c13;
-
     border-radius:10px;
-
     overflow:hidden;
 }
 
@@ -215,7 +198,6 @@ audio{
 
     position:fixed;
     inset:0;
-
     z-index:5;
 
     justify-content:center;
@@ -224,7 +206,6 @@ audio{
     text-align:center;
 
     opacity:0;
-
     transition:opacity 1.5s ease;
 }
 
@@ -244,12 +225,8 @@ audio{
 
 .key{
     font-size:110px;
-
     margin:35px 0;
-
-    text-shadow:
-    0 0 20px rgba(255,215,120,.45);
-
+    text-shadow:0 0 20px rgba(255,215,120,.45);
     animation-delay:3s;
 }
 
@@ -260,9 +237,7 @@ audio{
 
 .line3{
     font-size:24px;
-
     margin:12px 0 40px;
-
     animation-delay:7s;
 }
 
@@ -272,13 +247,11 @@ audio{
 
 .scene1 button{
     background:transparent;
-
     color:#F5F1E8;
 
     border:1px solid #F5F1E8;
 
     padding:12px 30px;
-
     border-radius:30px;
 
     margin:10px;
@@ -286,7 +259,6 @@ audio{
     font-size:18px;
 
     font-family:'Libre Baskerville',serif;
-
     cursor:pointer;
 
     transition:.4s;
@@ -306,35 +278,28 @@ audio{
 
     position:fixed;
     inset:0;
-
     z-index:5;
 
     width:100%;
     min-height:100vh;
 
     flex-direction:column;
-
     justify-content:center;
     align-items:center;
 
     opacity:0;
-
     transition:opacity 1.2s ease;
 }
 
 .title{
     font-size:30px;
-
     letter-spacing:2px;
-
     margin-bottom:35px;
-
     text-align:center;
 }
 
 .hallway{
     position:relative;
-
     width:520px;
     height:520px;
 }
@@ -353,11 +318,9 @@ audio{
 
     border:2px solid #b99b5a;
 
-    box-shadow:
-    0 0 20px rgba(255,215,120,.3);
+    box-shadow:0 0 20px rgba(255,215,120,.3);
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -368,20 +331,18 @@ audio{
     opacity:1;
 
     transition:
-    transform 1.2s cubic-bezier(.22,.61,.36,1),
-    opacity 1.2s ease,
-    box-shadow .5s ease;
+        transform 1.15s cubic-bezier(.22,.61,.36,1),
+        opacity 1.15s ease,
+        box-shadow .5s ease;
 }
 
 .door:hover{
-    box-shadow:
-    0 0 40px rgba(255,215,120,.8);
+    box-shadow:0 0 40px rgba(255,215,120,.8);
 }
 
 .door.opening{
     transform:scale(2.6);
     opacity:0;
-
     pointer-events:none;
 }
 
@@ -429,8 +390,7 @@ audio{
 
     background:#ffe6a3;
 
-    box-shadow:
-    0 0 25px #ffe6a3;
+    box-shadow:0 0 25px #ffe6a3;
 
     transition:opacity 1s ease;
 }
@@ -478,14 +438,12 @@ audio{
 
     position:fixed;
     inset:0;
-
     z-index:1000;
 
     background:#000;
 
     justify-content:center;
     align-items:center;
-
     flex-direction:column;
 
     text-align:center;
@@ -493,7 +451,6 @@ audio{
     padding:25px;
 
     opacity:0;
-
     transition:opacity 1.2s ease;
 }
 
@@ -515,18 +472,15 @@ audio{
     );
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
     color:#b99b5a;
 
     font-size:14px;
-
     letter-spacing:1px;
 
-    box-shadow:
-    0 0 35px rgba(255,215,120,.25);
+    box-shadow:0 0 35px rgba(255,215,120,.25);
 }
 
 .memoryMessage{
@@ -535,7 +489,6 @@ audio{
     max-width:600px;
 
     font-size:20px;
-
     line-height:1.7;
 }
 
@@ -573,20 +526,17 @@ audio{
 
     position:fixed;
     inset:0;
-
     z-index:1500;
 
     background:#000;
 
     justify-content:center;
     align-items:center;
-
     flex-direction:column;
 
     text-align:center;
 
     opacity:0;
-
     transition:opacity 1.2s ease;
 }
 
@@ -606,9 +556,7 @@ audio{
 
 .keyText{
     margin-top:25px;
-
     font-size:24px;
-
     letter-spacing:3px;
 }
 
@@ -663,7 +611,6 @@ audio{
 
     position:fixed;
     inset:0;
-
     z-index:2000;
 
     background:#000;
@@ -676,7 +623,6 @@ audio{
     overflow:hidden;
 
     opacity:0;
-
     transition:opacity .8s ease;
 }
 
@@ -724,25 +670,44 @@ audio{
 .scene3Key{
     position:absolute;
 
+    left:50%;
+    top:50%;
+
     font-size:110px;
 
     opacity:0;
 
-    transform:scale(.5);
+    transform:
+        translate(-50%,-50%)
+        scale(.6);
 
     transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.17,.67,.35,1.3);
+        opacity .8s ease,
+        transform 1s cubic-bezier(.22,.61,.36,1);
 
     text-shadow:
     0 0 15px #ffe6a3,
     0 0 40px #ffe6a3;
+
+    z-index:5;
 }
 
 .scene3Key.visible{
     opacity:1;
 
-    transform:scale(1);
+    transform:
+        translate(-50%,-50%)
+        scale(1);
+}
+
+/* KEY MOVES INTO LOCK */
+
+.scene3Key.insert{
+    transform:
+        translate(-50%,-10%)
+        scale(.55);
+
+    opacity:.85;
 }
 
 /* =========================
@@ -756,29 +721,24 @@ audio{
     top:50%;
 
     transform:
-    translate(-50%,-50%)
-    scale(.5);
+        translate(-50%,-50%)
+        scale(.65);
 
     opacity:0;
 
     transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.17,.67,.35,1.25);
+        opacity .8s ease,
+        transform .8s ease;
+
+    z-index:4;
 }
 
 .lockContainer.visible{
     opacity:1;
 
     transform:
-    translate(-50%,-50%)
-    scale(1);
-}
-
-.lockContainer.unlocking{
-    transform:
-    translate(-50%,-50%)
-    scale(1.15)
-    rotate(-3deg);
+        translate(-50%,-50%)
+        scale(1);
 }
 
 .lockBody{
@@ -796,6 +756,10 @@ audio{
     inset 0 0 20px rgba(255,215,120,.08);
 
     position:relative;
+
+    transition:
+        transform .8s ease,
+        box-shadow .8s ease;
 }
 
 .lockShackle{
@@ -813,14 +777,10 @@ audio{
 
     border-radius:28px 28px 0 0;
 
-    transition:
-    transform .8s ease;
-}
+    transform-origin:center bottom;
 
-.lockContainer.unlocking .lockShackle{
-    transform:
-    translateY(-20px)
-    rotate(-25deg);
+    transition:
+        transform 1s cubic-bezier(.22,.61,.36,1);
 }
 
 .lockKeyhole{
@@ -829,15 +789,72 @@ audio{
     left:50%;
     top:50%;
 
-    transform:
-    translate(-50%,-35%);
+    transform:translate(-50%,-35%);
 
     font-size:25px;
 
     color:#ffe6a3;
 
-    text-shadow:
-    0 0 15px #ffe6a3;
+    text-shadow:0 0 15px #ffe6a3;
+}
+
+/* LOCK SHAKES */
+
+.lockContainer.unlocking .lockBody{
+    animation:lockShake .65s ease-in-out;
+}
+
+@keyframes lockShake{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    20%{
+        transform:translateX(-8px);
+    }
+
+    40%{
+        transform:translateX(8px);
+    }
+
+    60%{
+        transform:translateX(-6px);
+    }
+
+    80%{
+        transform:translateX(6px);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+}
+
+/* SHACKLE OPENS */
+
+.lockContainer.unlocked .lockShackle{
+    transform:
+        rotate(-28deg)
+        translate(-7px,-8px);
+}
+
+.lockContainer.unlocked .lockBody{
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 45px rgba(255,215,120,.8),
+    inset 0 0 30px rgba(255,215,120,.2);
+}
+
+/* LOCK DISAPPEARS */
+
+.lockContainer.fadeOut{
+    opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.35);
 }
 
 /* =========================
@@ -848,9 +865,11 @@ audio{
     position:absolute;
 
     left:50%;
-    top:70%;
+    top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%)
+        translateY(100px);
 
     font-size:25px;
 
@@ -860,11 +879,19 @@ audio{
 
     white-space:nowrap;
 
-    transition:opacity 1s ease;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    z-index:10;
 }
 
 .waitMessage.visible{
     opacity:1;
+
+    transform:
+        translate(-50%,-50%)
+        translateY(0);
 }
 
 /* =========================
@@ -889,7 +916,6 @@ audio{
     overflow:hidden;
 
     opacity:0;
-
     transition:opacity 1.2s ease;
 }
 
@@ -902,7 +928,6 @@ audio{
     max-width:700px;
 
     position:relative;
-
     z-index:2;
 }
 
@@ -926,7 +951,6 @@ audio{
 
 .birthdayTitle.visible{
     opacity:1;
-
     transform:scale(1);
 }
 
@@ -934,7 +958,6 @@ audio{
     margin-top:35px;
 
     font-size:19px;
-
     line-height:1.8;
 
     opacity:0;
@@ -987,7 +1010,6 @@ audio{
 
 .confetti{
     position:absolute;
-
     inset:0;
 
     pointer-events:none;
@@ -1007,8 +1029,7 @@ audio{
 
     background:#ffe6a3;
 
-    animation:
-    confettiFall 3s linear forwards;
+    animation:confettiFall 3s linear forwards;
 }
 
 @keyframes confettiFall{
@@ -1035,11 +1056,9 @@ audio{
 ========================= */
 
 @keyframes fade{
-
     to{
         opacity:1;
     }
-
 }
 
 @keyframes scene3Dust{
@@ -1051,7 +1070,6 @@ audio{
     to{
         transform:translateY(-150px);
     }
-
 }
 
 /* =========================
@@ -1115,24 +1133,15 @@ audio{
 
 <div class="dust"></div>
 
-
 <!-- =========================
      AUDIO
 ========================= -->
 
-<audio id="backgroundMusic" preload="auto">
-    <source
-        src="love_story_x_golden_brown_[edit_audio](48k)"
-        type="audio/mpeg">
-</audio>
+<audio id="backgroundMusic" preload="auto"></audio>
 
 <audio id="doorSong" preload="auto"></audio>
 
-<audio
-    id="finalSong"
-    preload="auto"
-    src="Inam___best_part___-_edit_audio(48k)">
-</audio>
+<audio id="finalSong" preload="auto"></audio>
 
 
 <!-- =========================
@@ -1149,21 +1158,15 @@ audio{
 
         <div class="options">
 
-            <button
-                class="option"
-                onclick="checkAnswer('chomu')">
+            <button class="option" onclick="checkAnswer('chomu')">
                 Chomu
             </button>
 
-            <button
-                class="option"
-                onclick="checkAnswer('aloo')">
+            <button class="option" onclick="checkAnswer('aloo')">
                 Aloo Paloo
             </button>
 
-            <button
-                class="option"
-                onclick="checkAnswer('berozgar')">
+            <button class="option" onclick="checkAnswer('berozgar')">
                 Berozgar
             </button>
 
@@ -1178,37 +1181,23 @@ audio{
      ACCESS
 ========================= -->
 
-<div
-    class="accessScreen"
-    id="accessScreen">
+<div class="accessScreen" id="accessScreen">
 
-    <div
-        class="accessIcon"
-        id="accessIcon">
+    <div class="accessIcon" id="accessIcon">
         🚫
     </div>
 
-    <div
-        class="accessText"
-        id="accessText">
+    <div class="accessText" id="accessText">
         ACCESS NOT GRANTED
     </div>
 
-    <div
-        class="accessSub"
-        id="accessSub">
+    <div class="accessSub" id="accessSub">
         Choose again.
     </div>
 
-    <div
-        class="loadingBar"
-        id="loadingBar"
-        style="display:none;">
+    <div class="loadingBar" id="loadingBar" style="display:none;">
 
-        <div
-            class="loadingProgress"
-            id="loadingProgress">
-        </div>
+        <div class="loadingProgress" id="loadingProgress"></div>
 
     </div>
 
@@ -1219,9 +1208,7 @@ audio{
      SCENE 1
 ========================= -->
 
-<div
-    class="scene1"
-    id="scene1">
+<div class="scene1" id="scene1">
 
     <div class="scene1Container">
 
@@ -1262,9 +1249,7 @@ audio{
      SCENE 2
 ========================= -->
 
-<div
-    class="hallwayScreen"
-    id="hallwayScreen">
+<div class="hallwayScreen" id="hallwayScreen">
 
     <div class="title">
         Find the key...
@@ -1272,39 +1257,33 @@ audio{
 
     <div class="hallway">
 
-        <div
-            class="door door1"
-            onclick="openDoor(1,this)">
+        <div class="door door1"
+             onclick="openDoor(1,this)">
             Door 1
         </div>
 
-        <div
-            class="door door2"
-            onclick="openDoor(2,this)">
+        <div class="door door2"
+             onclick="openDoor(2,this)">
             Door 2
         </div>
 
-        <div
-            class="door door3"
-            onclick="openDoor(3,this)">
+        <div class="door door3"
+             onclick="openDoor(3,this)">
             Door 3
         </div>
 
-        <div
-            class="door door4"
-            onclick="openDoor(4,this)">
+        <div class="door door4"
+             onclick="openDoor(4,this)">
             Door 4
         </div>
 
-        <div
-            class="door door5"
-            onclick="openDoor(5,this)">
+        <div class="door door5"
+             onclick="openDoor(5,this)">
             Door 5
         </div>
 
-        <div
-            class="door door6"
-            onclick="openDoor(6,this)">
+        <div class="door door6"
+             onclick="openDoor(6,this)">
             Door 6
         </div>
 
@@ -1324,23 +1303,17 @@ audio{
      MEMORY
 ========================= -->
 
-<div
-    class="memoryScreen"
-    id="memoryScreen">
+<div class="memoryScreen" id="memoryScreen">
 
     <div class="placeholder">
         MEMORY PHOTO
     </div>
 
-    <div
-        class="memoryMessage"
-        id="memoryMessage">
+    <div class="memoryMessage" id="memoryMessage">
         A memory waits here...
     </div>
 
-    <button
-        class="continueButton"
-        onclick="closeMemory()">
+    <button class="continueButton" onclick="closeMemory()">
         Continue
     </button>
 
@@ -1351,9 +1324,7 @@ audio{
      KEY SCREEN
 ========================= -->
 
-<div
-    class="keyScreen"
-    id="keyScreen">
+<div class="keyScreen" id="keyScreen">
 
     <div class="keySymbol">
         🗝️
@@ -1363,9 +1334,7 @@ audio{
         You found the key.
     </div>
 
-    <button
-        class="keyContinue"
-        onclick="continueFromKey()">
+    <button class="keyContinue" onclick="continueFromKey()">
         Continue
     </button>
 
@@ -1376,23 +1345,17 @@ audio{
      SCENE 3
 ========================= -->
 
-<div
-    class="scene3"
-    id="scene3">
+<div class="scene3" id="scene3">
 
     <div class="scene3Particles"></div>
 
     <div class="scene3Content">
 
-        <div
-            class="scene3Key"
-            id="scene3Key">
+        <div class="scene3Key" id="scene3Key">
             🗝️
         </div>
 
-        <div
-            class="lockContainer"
-            id="lockContainer">
+        <div class="lockContainer" id="lockContainer">
 
             <div class="lockShackle"></div>
 
@@ -1406,9 +1369,7 @@ audio{
 
         </div>
 
-        <div
-            class="waitMessage"
-            id="waitMessage">
+        <div class="waitMessage" id="waitMessage">
             Your wait is over.
         </div>
 
@@ -1421,26 +1382,17 @@ audio{
      BIRTHDAY
 ========================= -->
 
-<div
-    class="birthdayScreen"
-    id="birthdayScreen">
+<div class="birthdayScreen" id="birthdayScreen">
 
-    <div
-        class="confetti"
-        id="confetti">
-    </div>
+    <div class="confetti" id="confetti"></div>
 
     <div class="birthdayContent">
 
-        <div
-            class="birthdayTitle"
-            id="birthdayTitle">
+        <div class="birthdayTitle" id="birthdayTitle">
             Happy Birthday ❤️
         </div>
 
-        <div
-            class="birthdayMessage"
-            id="birthdayMessage">
+        <div class="birthdayMessage" id="birthdayMessage">
 
             Thank you for opening every memory.
 
@@ -1451,9 +1403,7 @@ audio{
 
         </div>
 
-        <div
-            class="birthdayButtons"
-            id="birthdayButtons">
+        <div class="birthdayButtons" id="birthdayButtons">
 
             <button onclick="location.reload()">
                 Start Again
@@ -1507,32 +1457,23 @@ document.getElementById("finalSong");
 
 
 /* ==================================================
-   VOLUME
+   AUDIO FILES
 ================================================== */
 
-backgroundMusic.volume = 0.22;
+/*
+   IMPORTANT:
+   Your GitHub files do NOT have .mp3 extension.
+   So NO .mp3 is added here.
 
-doorSong.volume = 0.30;
+   # is encoded because # otherwise becomes
+   a URL fragment and breaks the filename.
+*/
 
-finalSong.volume = 0.30;
+const backgroundFile =
+"love_story_x_golden_brown_[edit_audio](48k)";
 
-
-/* ==================================================
-   STATE
-================================================== */
-
-let currentDoor = null;
-
-let openedDoors = new Set();
-
-let finalDoorFound = false;
-
-let scene3Timer = null;
-
-
-/* ==================================================
-   DOOR SONGS
-================================================== */
+const finalFile =
+"Inam___best_part___-_edit_audio(48k)";
 
 const doorSongs = {
 
@@ -1558,195 +1499,188 @@ const doorSongs = {
 
 
 /* ==================================================
-   MEMORY MESSAGES
+   FILE URL
 ================================================== */
 
-const memoryMessages = {
+function audioPath(filename){
 
-    1:
-    "Some memories are found before we even know we were looking.",
+    /*
+       Encode only characters that can break
+       a GitHub URL.
 
-    2:
-    "Maybe this was just another moment... but somehow it stayed.",
+       Most importantly: #
+    */
 
-    3:
-    "Not every memory needs a reason to matter.",
-
-    4:
-    "A small moment can become a permanent memory.",
-
-    5:
-    "And somehow, the journey keeps getting better.",
-
-    6:
-    "You were looking for a key... but maybe you found something else too."
-
-};
-
-
-/* ==================================================
-   STOP ALL AUDIO
-================================================== */
-
-function stopDoorSong(){
-
-    doorSong.pause();
-
-    doorSong.currentTime = 0;
-
-}
-
-
-function stopBackgroundMusic(){
-
-    backgroundMusic.pause();
-
-    backgroundMusic.currentTime = 0;
-
-}
-
-
-/*
-   IMPORTANT:
-
-   Final song is NOT stopped by this function.
-
-   It belongs to Scene 3 + Birthday.
-*/
-
-
-function stopEverythingExceptFinal(){
-
-    stopBackgroundMusic();
-
-    stopDoorSong();
+    return filename
+        .replaceAll("#","%23");
 
 }
 
 
 /* ==================================================
-   SCENE 0 ANSWER
+   VOLUME
+================================================== */
+
+backgroundMusic.volume = 0.18;
+
+doorSong.volume = 0.20;
+
+finalSong.volume = 0.25;
+
+
+/* ==================================================
+   STATE
+================================================== */
+
+let openedDoors =
+new Set();
+
+let currentDoor =
+null;
+
+let openingDoor =
+false;
+
+let scene3Started =
+false;
+
+
+/* ==================================================
+   INITIAL AUDIO SOURCES
+================================================== */
+
+backgroundMusic.src =
+audioPath(backgroundFile);
+
+finalSong.src =
+audioPath(finalFile);
+
+
+/* ==================================================
+   CHECK ANSWER
 ================================================== */
 
 function checkAnswer(answer){
 
-    accessScreen.style.display = "flex";
+    /*
+       Prevent multiple clicks while access
+       animation is running.
+    */
 
-    requestAnimationFrame(function(){
-
-        accessScreen.style.opacity = "1";
-
-    });
-
-
-    const icon =
-    document.getElementById("accessIcon");
-
-    const text =
-    document.getElementById("accessText");
-
-    const sub =
-    document.getElementById("accessSub");
-
-    const bar =
-    document.getElementById("loadingBar");
-
-    const progress =
-    document.getElementById("loadingProgress");
+    if(
+        accessScreen.style.display === "flex"
+    ){
+        return;
+    }
 
 
     if(answer !== "aloo"){
 
-        icon.innerHTML = "🚫";
+        accessScreen.style.display =
+        "flex";
 
-        text.innerHTML =
+        accessScreen.style.opacity =
+        "1";
+
+        document
+        .getElementById("accessIcon")
+        .textContent = "🚫";
+
+        document
+        .getElementById("accessText")
+        .textContent =
         "ACCESS NOT GRANTED";
 
-        text.classList.remove("granted");
-
-        sub.innerHTML =
+        document
+        .getElementById("accessSub")
+        .textContent =
         "Choose again.";
 
-        bar.style.display = "none";
-
-
         setTimeout(function(){
 
-            accessScreen.style.opacity = "0";
-
-        },900);
-
-
-        setTimeout(function(){
-
-            accessScreen.style.display = "none";
-
-        },1900);
-
-
-        return;
-
-    }
-
-
-    icon.innerHTML = "🔓";
-
-    text.innerHTML =
-    "ACCESS GRANTED";
-
-    text.classList.add("granted");
-
-    sub.innerHTML =
-    "Identity confirmed.";
-
-    bar.style.display = "block";
-
-    progress.style.width = "0%";
-
-
-    /*
-       Start background music ONLY HERE.
-
-       It will NOT start in Scene 2.
-    */
-
-    stopEverythingExceptFinal();
-
-    backgroundMusic.volume = 0.22;
-
-    backgroundMusic.currentTime = 0;
-
-    backgroundMusic.play().catch(function(){
-
-        /*
-           Browser autoplay protection.
-
-           Music will begin after the next user interaction.
-        */
-
-    });
-
-
-    let value = 0;
-
-
-    const loader =
-    setInterval(function(){
-
-        value += 5;
-
-        progress.style.width =
-        value + "%";
-
-
-        if(value >= 100){
-
-            clearInterval(loader);
+            accessScreen.style.opacity =
+            "0";
 
             setTimeout(function(){
 
-                accessScreen.style.opacity = "0";
+                accessScreen.style.display =
+                "none";
 
+            },1000);
+
+        },1400);
+
+        return;
+    }
+
+
+    /* =========================
+       ALoo = ACCESS GRANTED
+    ========================= */
+
+    accessScreen.style.display =
+    "flex";
+
+    accessScreen.style.opacity =
+    "1";
+
+    document
+    .getElementById("accessIcon")
+    .textContent = "🗝️";
+
+    document
+    .getElementById("accessText")
+    .textContent =
+    "ACCESS GRANTED";
+
+    document
+    .getElementById("accessText")
+    .classList.add("granted");
+
+    document
+    .getElementById("accessSub")
+    .textContent =
+    "Welcome.";
+
+    document
+    .getElementById("loadingBar")
+    .style.display =
+    "block";
+
+
+    /*
+       Background song starts ONLY here.
+       It cannot leak into Scene 2 because
+       goToScene2() explicitly stops it.
+    */
+
+    backgroundMusic.currentTime = 0;
+
+    backgroundMusic.play()
+    .catch(function(){});
+
+
+    let progress = 0;
+
+    const progressTimer =
+    setInterval(function(){
+
+        progress += 10;
+
+        document
+        .getElementById("loadingProgress")
+        .style.width =
+        progress + "%";
+
+
+        if(progress >= 100){
+
+            clearInterval(progressTimer);
+
+            setTimeout(function(){
+
+                accessScreen.style.opacity =
+                "0";
 
                 setTimeout(function(){
 
@@ -1761,7 +1695,7 @@ function checkAnswer(answer){
 
         }
 
-    },100);
+    },220);
 
 }
 
@@ -1772,28 +1706,50 @@ function checkAnswer(answer){
 
 function showScene1(){
 
-    scene1.style.display = "flex";
+    scene0.style.opacity =
+    "0";
+
+    scene0.style.pointerEvents =
+    "none";
+
+    scene0.style.display =
+    "none";
+
+
+    scene1.style.display =
+    "flex";
+
 
     requestAnimationFrame(function(){
 
-        scene1.style.opacity = "1";
+        scene1.style.opacity =
+        "1";
 
     });
 
 }
 
 
+/* ==================================================
+   NAHI
+================================================== */
+
 function nahi(){
 
-    scene1.style.opacity = "0";
+    /*
+       Nahi simply keeps the current scene.
+       No reload and no Scene 0 loop.
+    */
+
+    scene1.style.opacity =
+    "0";
 
     setTimeout(function(){
 
-        scene1.style.display = "none";
+        scene1.style.opacity =
+        "1";
 
-        showScene1();
-
-    },1200);
+    },700);
 
 }
 
@@ -1805,24 +1761,35 @@ function nahi(){
 function goToScene2(){
 
     /*
-       Background music continues from Scene 1,
-       but NO door song is playing.
+       CRITICAL FIX:
+       Background music stops BEFORE Scene 2.
+       Therefore it cannot overlap with door songs.
     */
 
-    stopDoorSong();
+    backgroundMusic.pause();
 
-    scene1.style.opacity = "0";
+    backgroundMusic.currentTime =
+    0;
+
+
+    scene1.style.opacity =
+    "0";
 
 
     setTimeout(function(){
 
-        scene1.style.display = "none";
+        scene1.style.display =
+        "none";
 
-        hallwayScreen.style.display = "flex";
+
+        hallwayScreen.style.display =
+        "flex";
+
 
         requestAnimationFrame(function(){
 
-            hallwayScreen.style.opacity = "1";
+            hallwayScreen.style.opacity =
+            "1";
 
         });
 
@@ -1838,48 +1805,34 @@ function goToScene2(){
 function openDoor(number, doorElement){
 
     /*
-       Prevent double clicking.
+       Prevent accidental double taps.
     */
+
+    if(openingDoor){
+        return;
+    }
+
 
     if(openedDoors.has(number)){
         return;
     }
 
 
-    if(
-        doorElement.classList.contains("opening")
-    ){
-        return;
-    }
-
-
-    openedDoors.add(number);
+    openingDoor = true;
 
     currentDoor = number;
 
 
     /*
-       IMPORTANT:
-
-       Background music stops before door song.
-
-       This prevents overlap.
+       Mark door opened immediately.
+       This prevents duplicate clicks.
     */
 
-    stopBackgroundMusic();
-
-    stopDoorSong();
+    openedDoors.add(number);
 
 
     /*
-       Door fades + zooms.
-    */
-
-    doorElement.classList.add("opening");
-
-
-    /*
-       Turn off corresponding light.
+       Turn OFF corresponding light.
     */
 
     const light =
@@ -1895,48 +1848,61 @@ function openDoor(number, doorElement){
 
 
     /*
-       Wait for door animation
-       before showing memory.
+       Door zoom + fade.
+       DO NOT REMOVE THIS.
+    */
+
+    doorElement.classList.add("opening");
+
+
+    /*
+       Stop any previous door song.
+       This prevents overlap.
+    */
+
+    doorSong.pause();
+
+    doorSong.currentTime = 0;
+
+
+    /*
+       Load the exact song for this door.
+    */
+
+    doorSong.src =
+    audioPath(
+        doorSongs[number]
+    );
+
+    doorSong.load();
+
+
+    /*
+       Low volume.
+    */
+
+    doorSong.volume =
+    0.20;
+
+
+    /*
+       Start the selected door song.
+    */
+
+    doorSong.play()
+    .catch(function(){});
+
+
+    /*
+       Wait for door fade/zoom,
+       then show memory.
     */
 
     setTimeout(function(){
 
-        hallwayScreen.style.opacity = "0";
+        showMemory(number);
 
-
-        setTimeout(function(){
-
-            hallwayScreen.style.display =
-            "none";
-
-
-            /*
-               Last remaining door = key.
-
-               If only one door remains,
-               show key screen instead of memory.
-            */
-
-            const remainingDoors =
-            document.querySelectorAll(
-                ".door:not(.opening)"
-            );
-
-
-            if(remainingDoors.length === 0){
-
-                showKeyScreen();
-
-                return;
-
-            }
-
-
-            showMemory(number);
-
-        },700);
-
-    },700);
+    },1050);
 
 }
 
@@ -1947,14 +1913,25 @@ function openDoor(number, doorElement){
 
 function showMemory(number){
 
+    currentDoor =
+    number;
+
+
+    /*
+       IMPORTANT:
+       Hallway is NOT recreated.
+       Therefore "Find the key..."
+       will NOT appear after every door.
+    */
+
     memoryScreen.style.display =
     "flex";
 
 
-    document.getElementById(
-        "memoryMessage"
-    ).innerHTML =
-    memoryMessages[number];
+    document
+    .getElementById("memoryMessage")
+    .textContent =
+    "A memory waits here...";
 
 
     requestAnimationFrame(function(){
@@ -1964,36 +1941,7 @@ function showMemory(number){
     });
 
 
-    /*
-       Start selected door song.
-
-       It begins only after the door is opened.
-    */
-
-    const song =
-    doorSongs[number];
-
-
-    if(song){
-
-        stopDoorSong();
-
-        doorSong.src = song;
-
-        doorSong.volume = 0.30;
-
-        doorSong.currentTime = 0;
-
-        doorSong.play().catch(function(){
-
-            /*
-               Mobile browsers may require
-               another touch.
-            */
-
-        });
-
-    }
+    openingDoor = false;
 
 }
 
@@ -2004,14 +1952,27 @@ function showMemory(number){
 
 function closeMemory(){
 
+    if(!currentDoor){
+        return;
+    }
+
+
     /*
-       Stop current door song immediately.
+       Stop current door song.
+       It does NOT continue into another door.
     */
 
-    stopDoorSong();
+    doorSong.pause();
+
+    doorSong.currentTime =
+    0;
 
 
     memoryScreen.classList.remove("show");
+
+
+    const wasLastDoor =
+    openedDoors.size >= 6;
 
 
     setTimeout(function(){
@@ -2021,24 +1982,30 @@ function closeMemory(){
 
 
         /*
-           ONLY NOW return to hallway.
+           ONLY after ALL SIX doors are opened
+           show the key screen.
 
-           This prevents Find the key page
-           from appearing between animations.
+           Otherwise return to hallway.
         */
 
-        hallwayScreen.style.display =
-        "flex";
+        if(wasLastDoor){
 
+            showKeyScreen();
 
-        requestAnimationFrame(function(){
+        }else{
+
+            hallwayScreen.style.display =
+            "flex";
 
             hallwayScreen.style.opacity =
             "1";
 
-        });
+        }
 
-    },1000);
+
+        currentDoor = null;
+
+    },1100);
 
 }
 
@@ -2048,9 +2015,6 @@ function closeMemory(){
 ================================================== */
 
 function showKeyScreen(){
-
-    finalDoorFound = true;
-
 
     keyScreen.style.display =
     "flex";
@@ -2071,44 +2035,18 @@ function showKeyScreen(){
 
 function continueFromKey(){
 
+    if(scene3Started){
+        return;
+    }
+
+    scene3Started = true;
+
+
     /*
-       Hide key screen first.
+       Hide key screen.
     */
 
     keyScreen.classList.remove("show");
-
-
-    /*
-       No background music.
-       No door song.
-
-       Final song starts HERE.
-    */
-
-    stopBackgroundMusic();
-
-    stopDoorSong();
-
-
-    /*
-       Start final song exactly once.
-    */
-
-    finalSong.pause();
-
-    finalSong.currentTime = 0;
-
-    finalSong.volume = 0.30;
-
-
-    finalSong.play().catch(function(){
-
-        /*
-           If browser blocks it,
-           this click itself normally allows playback.
-        */
-
-    });
 
 
     setTimeout(function(){
@@ -2117,15 +2055,35 @@ function continueFromKey(){
         "none";
 
 
+        /*
+           FINAL SONG STARTS HERE.
+
+           It is NOT stopped during Scene 3.
+           It continues into Birthday.
+        */
+
+        finalSong.pause();
+
+        finalSong.currentTime =
+        0;
+
+        finalSong.volume =
+        0.25;
+
+        finalSong.play()
+        .catch(function(){});
+
+
         startScene3();
 
-    },800);
+    },1000);
 
 }
 
 
 /* ==================================================
    SCENE 3
+   EXACTLY 11 SECONDS
 ================================================== */
 
 function startScene3(){
@@ -2134,14 +2092,11 @@ function startScene3(){
     "flex";
 
 
-    requestAnimationFrame(function(){
+    /*
+       Reset animation state.
+    */
 
-        scene3.classList.add("show");
-
-    });
-
-
-    const key =
+    const scene3Key =
     document.getElementById("scene3Key");
 
     const lock =
@@ -2151,83 +2106,153 @@ function startScene3(){
     document.getElementById("waitMessage");
 
 
-    /*
-       Reset animation state.
-    */
+    scene3Key.classList.remove(
+        "visible",
+        "insert"
+    );
 
-    key.classList.remove("visible");
+    lock.classList.remove(
+        "visible",
+        "unlocking",
+        "unlocked",
+        "fadeOut"
+    );
 
-    lock.classList.remove("visible");
-
-    lock.classList.remove("unlocking");
-
-    wait.classList.remove("visible");
+    wait.classList.remove(
+        "visible"
+    );
 
 
-    /*
-       STEP 1
-       Key appears.
-    */
+    requestAnimationFrame(function(){
+
+        scene3.classList.add("show");
+
+    });
+
+
+    /* =========================
+       0.3 SEC
+       KEY APPEARS
+    ========================= */
 
     setTimeout(function(){
 
-        key.classList.add("visible");
+        scene3Key.classList.add(
+            "visible"
+        );
 
     },300);
 
 
-    /*
-       STEP 2
-       Lock appears.
-    */
+    /* =========================
+       1.6 SEC
+       LOCK APPEARS
+    ========================= */
 
     setTimeout(function(){
 
-        key.classList.remove("visible");
+        lock.classList.add(
+            "visible"
+        );
 
-        lock.classList.add("visible");
-
-    },2500);
-
-
-    /*
-       STEP 3
-       Lock unlock animation.
-    */
-
-    setTimeout(function(){
-
-        lock.classList.add("unlocking");
-
-    },4500);
+    },1600);
 
 
-    /*
-       STEP 4
-       Message.
-    */
+    /* =========================
+       3.0 SEC
+       KEY ENTERS LOCK
+    ========================= */
 
     setTimeout(function(){
 
-        wait.classList.add("visible");
+        scene3Key.classList.add(
+            "insert"
+        );
 
-    },6200);
-
-
-    /*
-       STEP 5
-       Scene 3 ends at 11 seconds.
-
-       FINAL SONG IS NOT STOPPED.
-    */
-
-    clearTimeout(scene3Timer);
+    },3000);
 
 
-    scene3Timer =
+    /* =========================
+       4.2 SEC
+       LOCK SHAKES
+    ========================= */
+
     setTimeout(function(){
 
-        goToBirthday();
+        lock.classList.add(
+            "unlocking"
+        );
+
+    },4200);
+
+
+    /* =========================
+       5.0 SEC
+       LOCK OPENS
+    ========================= */
+
+    setTimeout(function(){
+
+        lock.classList.remove(
+            "unlocking"
+        );
+
+        lock.classList.add(
+            "unlocked"
+        );
+
+    },5000);
+
+
+    /* =========================
+       6.3 SEC
+       KEY FADES
+    ========================= */
+
+    setTimeout(function(){
+
+        scene3Key.style.opacity =
+        "0";
+
+    },6300);
+
+
+    /* =========================
+       6.8 SEC
+       LOCK DISAPPEARS
+    ========================= */
+
+    setTimeout(function(){
+
+        lock.classList.add(
+            "fadeOut"
+        );
+
+    },6800);
+
+
+    /* =========================
+       7.5 SEC
+       MESSAGE
+    ========================= */
+
+    setTimeout(function(){
+
+        wait.classList.add(
+            "visible"
+        );
+
+    },7500);
+
+
+    /* =========================
+       EXACTLY 11 SEC
+       BIRTHDAY
+    ========================= */
+
+    setTimeout(function(){
+
+        endScene3();
 
     },11000);
 
@@ -2235,19 +2260,21 @@ function startScene3(){
 
 
 /* ==================================================
-   BIRTHDAY
+   END SCENE 3
 ================================================== */
 
-function goToBirthday(){
+function endScene3(){
 
     /*
-       DO NOT STOP FINAL SONG HERE.
+       IMPORTANT:
+       FINAL SONG IS NOT PAUSED HERE.
 
-       It continues from Scene 3 into Birthday.
+       It continues naturally into Birthday.
     */
 
-
-    scene3.classList.remove("show");
+    scene3.classList.remove(
+        "show"
+    );
 
 
     setTimeout(function(){
@@ -2262,10 +2289,18 @@ function goToBirthday(){
 
         requestAnimationFrame(function(){
 
-            birthdayScreen.classList.add("show");
+            birthdayScreen.classList.add(
+                "show"
+            );
 
         });
 
+
+        /*
+           Confetti starts ONLY now.
+           Song has already been playing
+           throughout Scene 3.
+        */
 
         createConfetti();
 
@@ -2274,27 +2309,33 @@ function goToBirthday(){
 
             document
             .getElementById("birthdayTitle")
-            .classList.add("visible");
+            .classList.add(
+                "visible"
+            );
 
-        },300);
+        },200);
 
 
         setTimeout(function(){
 
             document
             .getElementById("birthdayMessage")
-            .classList.add("visible");
+            .classList.add(
+                "visible"
+            );
 
-        },1100);
+        },900);
 
 
         setTimeout(function(){
 
             document
             .getElementById("birthdayButtons")
-            .classList.add("visible");
+            .classList.add(
+                "visible"
+            );
 
-        },2100);
+        },1800);
 
 
     },900);
@@ -2310,7 +2351,6 @@ function createConfetti(){
 
     const container =
     document.getElementById("confetti");
-
 
     container.innerHTML = "";
 
@@ -2343,7 +2383,9 @@ function createConfetti(){
         "deg)";
 
 
-        container.appendChild(piece);
+        container.appendChild(
+            piece
+        );
 
     }
 
