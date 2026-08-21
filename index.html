@@ -388,36 +388,63 @@ body{
     opacity:1;
 }
 
-.placeholder{
+/* PHOTO BOX */
+
+.photoFrame{
     width:280px;
     height:360px;
     border:2px solid #b99b5a;
-    background:
-    radial-gradient(
-        circle,
-        rgba(255,215,120,.12),
-        rgba(0,0,0,.95)
-    );
+    background:#050505;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#b99b5a;
-    font-size:14px;
-    letter-spacing:1px;
-    box-shadow:0 0 35px rgba(255,215,120,.25);
     overflow:hidden;
+    box-shadow:0 0 35px rgba(255,215,120,.25);
+
+    opacity:0;
+    transform:
+        perspective(800px)
+        rotateY(90deg)
+        scale(.85);
+
+    transform-style:preserve-3d;
 }
 
-/* ================= DOOR 6 PHOTO ================= */
+/* SAME SPEED FOR EVERY PHOTO */
+
+.memoryScreen.show .photoFrame{
+    animation:photoTwirl 1.4s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+@keyframes photoTwirl{
+
+    0%{
+        opacity:0;
+        transform:
+            perspective(800px)
+            rotateY(90deg)
+            scale(.85);
+    }
+
+    45%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:1;
+        transform:
+            perspective(800px)
+            rotateY(0deg)
+            scale(1);
+    }
+}
 
 .memoryPhoto{
-    width:280px;
-    height:360px;
+    width:100%;
+    height:100%;
     object-fit:cover;
     display:block;
 }
-
-/* ================= MEMORY MESSAGE ================= */
 
 .memoryMessage{
     margin-top:28px;
@@ -556,8 +583,6 @@ body{
     flex-direction:column;
 }
 
-/* KEY */
-
 .scene3Key{
     position:absolute;
     font-size:110px;
@@ -576,8 +601,6 @@ body{
     opacity:1;
     transform:scale(1);
 }
-
-/* LOCK */
 
 .lockContainer{
     position:absolute;
@@ -679,8 +702,6 @@ body{
         0 0 70px rgba(255,215,120,.9);
     }
 }
-
-/* WAIT */
 
 .waitMessage{
     position:absolute;
@@ -920,9 +941,13 @@ body{
         font-size:19px;
     }
 
-    .memoryPhoto{
+    .photoFrame{
         width:240px;
         height:310px;
+    }
+
+    .memoryMessage{
+        font-size:16px;
     }
 
 }
@@ -946,8 +971,8 @@ body{
 
 <audio
     id="finalSong"
-    src="Inam___best_part___-_edit_audio(48k)"
-></audio>
+    src="Inam___best_part___-_edit_audio(48k)">
+</audio>
 
 
 <!-- ================= SCENE 0 ================= -->
@@ -962,20 +987,17 @@ body{
 
         <div class="options">
 
-            <button
-                class="option"
+            <button class="option"
                 onclick="checkAnswer('chomu')">
                 Chomu
             </button>
 
-            <button
-                class="option"
+            <button class="option"
                 onclick="checkAnswer('aloo')">
                 Aloo Paloo
             </button>
 
-            <button
-                class="option"
+            <button class="option"
                 onclick="checkAnswer('berozgar')">
                 Berozgar
             </button>
@@ -1003,15 +1025,9 @@ body{
         Choose again.
     </div>
 
-    <div
-        class="loadingBar"
-        id="loadingBar"
-        style="display:none;">
+    <div class="loadingBar" id="loadingBar" style="display:none;">
 
-        <div
-            class="loadingProgress"
-            id="loadingProgress">
-        </div>
+        <div class="loadingProgress" id="loadingProgress"></div>
 
     </div>
 
@@ -1059,9 +1075,7 @@ body{
 
 <!-- ================= SCENE 2 ================= -->
 
-<div
-    class="hallwayScreen"
-    id="hallwayScreen">
+<div class="hallwayScreen" id="hallwayScreen">
 
     <div class="title">
         Find the key...
@@ -1113,32 +1127,26 @@ body{
 
 <!-- ================= MEMORY ================= -->
 
-<div
-    class="memoryScreen"
-    id="memoryScreen">
+<div class="memoryScreen" id="memoryScreen">
 
-    <div
-        class="placeholder"
-        id="memoryPhoto">
+    <div class="photoFrame">
 
-        MEMORY PHOTO
+        <img
+            id="memoryPhoto"
+            class="memoryPhoto"
+            src=""
+            alt="Memory">
 
     </div>
 
-    <div
-        class="memoryMessage"
-        id="memoryMessage">
-
+    <div class="memoryMessage" id="memoryMessage">
         A memory waits here...
-
     </div>
 
     <button
         class="continueButton"
         onclick="closeMemory()">
-
         Continue
-
     </button>
 
 </div>
@@ -1146,9 +1154,7 @@ body{
 
 <!-- ================= KEY SCREEN ================= -->
 
-<div
-    class="keyScreen"
-    id="keyScreen">
+<div class="keyScreen" id="keyScreen">
 
     <div class="keySymbol">
         🗝️
@@ -1161,9 +1167,7 @@ body{
     <button
         class="keyContinue"
         onclick="continueFromKey()">
-
         Continue
-
     </button>
 
 </div>
@@ -1171,25 +1175,17 @@ body{
 
 <!-- ================= SCENE 3 ================= -->
 
-<div
-    class="scene3"
-    id="scene3">
+<div class="scene3" id="scene3">
 
     <div class="scene3Particles"></div>
 
     <div class="scene3Content">
 
-        <div
-            class="scene3Key"
-            id="scene3Key">
-
+        <div class="scene3Key" id="scene3Key">
             🗝️
-
         </div>
 
-        <div
-            class="lockContainer"
-            id="lockContainer">
+        <div class="lockContainer" id="lockContainer">
 
             <div class="lockShackle"></div>
 
@@ -1203,12 +1199,8 @@ body{
 
         </div>
 
-        <div
-            class="waitMessage"
-            id="waitMessage">
-
+        <div class="waitMessage" id="waitMessage">
             Your wait is over.
-
         </div>
 
     </div>
@@ -1218,28 +1210,17 @@ body{
 
 <!-- ================= BIRTHDAY ================= -->
 
-<div
-    class="birthdayScreen"
-    id="birthdayScreen">
+<div class="birthdayScreen" id="birthdayScreen">
 
-    <div
-        class="confetti"
-        id="confetti">
-    </div>
+    <div class="confetti" id="confetti"></div>
 
     <div class="birthdayContent">
 
-        <div
-            class="birthdayTitle"
-            id="birthdayTitle">
-
+        <div class="birthdayTitle" id="birthdayTitle">
             Happy Birthday ❤️
-
         </div>
 
-        <div
-            class="birthdayMessage"
-            id="birthdayMessage">
+        <div class="birthdayMessage" id="birthdayMessage">
 
             Thank you for opening every memory.
 
@@ -1250,9 +1231,7 @@ body{
 
         </div>
 
-        <div
-            class="birthdayButtons"
-            id="birthdayButtons">
+        <div class="birthdayButtons" id="birthdayButtons">
 
             <button onclick="location.reload()">
                 Start Again
@@ -1268,7 +1247,7 @@ body{
 <script>
 
 /* =========================================================
-   AUDIO SYSTEM
+   AUDIO
 ========================================================= */
 
 const backgroundMusic =
@@ -1280,16 +1259,13 @@ document.getElementById("doorSong");
 const finalSong =
 document.getElementById("finalSong");
 
-
-/* LOW VOLUME */
-
 backgroundMusic.volume = 0.15;
 doorSong.volume = 0.30;
 finalSong.volume = 0.30;
 
 
 /* =========================================================
-   DOOR SONG FILES
+   DOOR SONGS
 ========================================================= */
 
 const doorSongs = {
@@ -1315,11 +1291,71 @@ const doorSongs = {
 
 
 /* =========================================================
-   DOOR 6 PHOTO
+   PHOTO FILES
 ========================================================= */
 
-const door6Photo =
-"file_00000000b6f081faa703900100edbabc%20(1).jpg";
+const doorPhotos = {
+
+    1:
+    "file_00000000c2308211bb38f0dda1270b59.png",
+
+    2:
+    "Screenshot_2026-08-21-20-31-27-166.jpeg",
+
+    3:
+    "Screenshot_2026-08-21-20-31-01-477.jpeg",
+
+    4:
+    "Screenshot_2026-08-21-00-16-06-866.jpeg",
+
+    5:
+    "Screenshot_2026-08-22-01-03-42-790.jpeg",
+
+    6:
+    "file_00000000b6f081faa703900100edbabc (1).jpg"
+};
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+const messages = {
+
+1: `Pata nahi kab itni saari yaadein ban gayi,
+bas ab tum un logon mein aa gaye ho jinke bina kuch moments adhure lagte hain. 🫶🏻
+Zyada khush mat hona, bas birthday hai aaj. 😭😂`,
+
+2: `Kuch logon ko birthday wishes milti hain,
+aur kuch ko bas ek ajeeb sa website mil jaata hai. 😂
+Tum lucky ho… ya phir unfortunate, pta nhi lekin. 😭
+Itna effort dekh ke thank you bol dena,
+warna next time sirf “HBD” likh ke chhod dungi. 😇`,
+
+3: `Pata hai, sabne pehle hi keh diya tha ki tumse thoda door rehna. 😂
+Maine bhi socha tha, chalo dekhte hain aakhir itni warnings kyun mil rahi hain. 😭😂
+Unfortunately… tum itne bure bhi nahi nikle. 😉`,
+
+4: `Kabhi kabhi kuch logon se baat karne ke liye
+koi special reason nahi chahiye hota.
+Bas mann kiya, message kar diya… aur baat chal padti hai. 😂
+Phir pata nahi kaise ek chhoti si conversation poora mood theek kar deti hai.
+Aur shayad isi liye kuch conversations bas khatam karne ka mann nahi karta. 🫶🏻`,
+
+5: `Dosti ka bhi na, koi fixed definition nahi hoti.
+Kabhi roz baat karne wale bhi bas jaan-pehchaan reh jaate hain,
+aur kabhi door rehne wala koi insaan itna apna ban jaata hai.
+Pata hi nahi chala kab tum ek random person se
+ek genuinely important friend ban gaye. 🫶🏻`,
+
+6: `Kuch yaadein bas yaadein nahi hoti, unke saath ek poora sa ehsaas juda hota hai.
+Itne saare moments mein se kuch yaad reh gaye, kuch bas hansi de gaye.
+Pata nahi future mein aur kitni memories add hongi,
+lekin jo ab tak bana hai, woh genuinely special hai.
+Toh shayad… hamari ye chhoti si journey yahin thodi der ke liye rukti hai. 🫶🏻
+Aur haan… here is your key. 🗝️👉🏻`
+
+};
 
 
 /* =========================================================
@@ -1329,11 +1365,10 @@ const door6Photo =
 let currentDoor = null;
 let openedDoors = 0;
 let lastDoor = false;
-let scene3Timer = null;
 
 
 /* =========================================================
-   STOP ALL MUSIC
+   STOP MUSIC
 ========================================================= */
 
 function stopDoorSong(){
@@ -1391,9 +1426,7 @@ function checkAnswer(answer){
     const progress =
     document.getElementById("loadingProgress");
 
-
     scene0.style.opacity = "0";
-
 
     setTimeout(function(){
 
@@ -1404,7 +1437,6 @@ function checkAnswer(answer){
         requestAnimationFrame(function(){
             access.style.opacity = "1";
         });
-
 
         if(answer === "aloo"){
 
@@ -1421,9 +1453,7 @@ function checkAnswer(answer){
             loadingBar.style.display =
             "block";
 
-
             let value = 0;
-
 
             const loading =
             setInterval(function(){
@@ -1433,16 +1463,13 @@ function checkAnswer(answer){
                 progress.style.width =
                 value + "%";
 
-
                 if(value >= 100){
 
                     clearInterval(loading);
 
-
                     setTimeout(function(){
 
                         access.style.opacity = "0";
-
 
                         setTimeout(function(){
 
@@ -1454,7 +1481,6 @@ function checkAnswer(answer){
                         },700);
 
                     },400);
-
                 }
 
             },60);
@@ -1476,11 +1502,9 @@ function checkAnswer(answer){
             loadingBar.style.display =
             "none";
 
-
             setTimeout(function(){
 
                 access.style.opacity = "0";
-
 
                 setTimeout(function(){
 
@@ -1523,13 +1547,10 @@ function showScene1(){
 
     });
 
-
     backgroundMusic.currentTime = 0;
 
     backgroundMusic.play().catch(function(){
-        console.log(
-            "Background music waiting for browser permission."
-        );
+        console.log("Background music waiting.");
     });
 }
 
@@ -1544,7 +1565,6 @@ function nahi(){
     document.getElementById("scene1");
 
     scene1.style.opacity = "0";
-
 
     setTimeout(function(){
 
@@ -1571,19 +1591,15 @@ function goToScene2(){
     const hallway =
     document.getElementById("hallwayScreen");
 
-
     scene1.style.opacity = "0";
-
 
     setTimeout(function(){
 
         scene1.style.display =
         "none";
 
-
         hallway.style.display =
         "flex";
-
 
         requestAnimationFrame(function(){
 
@@ -1597,7 +1613,7 @@ function goToScene2(){
 
 
 /* =========================================================
-   DOOR OPEN
+   OPEN DOOR
 ========================================================= */
 
 function openDoor(number, element){
@@ -1606,12 +1622,9 @@ function openDoor(number, element){
         return;
     }
 
-
     stopDoorSong();
 
-
     currentDoor = number;
-
 
     const allDoors =
     document.querySelectorAll(".door");
@@ -1631,30 +1644,22 @@ function openDoor(number, element){
 
     });
 
-
     lastDoor =
     remaining === 0;
 
-
     element.classList.add("opening");
 
-
     const light =
-    document.querySelector(
-        ".light" + number
-    );
+    document.querySelector(".light" + number);
 
     if(light){
         light.classList.add("off");
     }
 
-
     openedDoors++;
-
 
     const song =
     doorSongs[number];
-
 
     if(song){
 
@@ -1675,7 +1680,6 @@ function openDoor(number, element){
 
     }
 
-
     setTimeout(function(){
 
         const hallway =
@@ -1683,12 +1687,10 @@ function openDoor(number, element){
 
         hallway.style.opacity = "0";
 
-
         setTimeout(function(){
 
             hallway.style.display =
             "none";
-
 
             showMemory(number);
 
@@ -1699,7 +1701,7 @@ function openDoor(number, element){
 
 
 /* =========================================================
-   MEMORY
+   SHOW MEMORY
 ========================================================= */
 
 function showMemory(number){
@@ -1707,89 +1709,55 @@ function showMemory(number){
     const memory =
     document.getElementById("memoryScreen");
 
+    const photo =
+    document.getElementById("memoryPhoto");
+
     const message =
     document.getElementById("memoryMessage");
 
-    const photoBox =
-    document.getElementById("memoryPhoto");
-
-
-    const messages = {
-
-    1: `Pata nahi kab itni saari yaadein ban gayi,
-bas ab tum un logon mein aa gaye ho jinke bina kuch moments adhure lagte hain. 🫶🏻
-Zyada khush mat hona, bas birthday hai aaj. 😭😂`,
-
-    2: `Kuch logon ko birthday wishes milti hain,
-aur kuch ko bas ek ajeeb sa website mil jaata hai. 😂
-Tum lucky ho… ya phir unfortunate, pta nhi lekin. 😭
-Itna effort dekh ke thank you bol dena,
-warna next time sirf “HBD” likh ke chhod dungi. 😇`,
-
-    3: `Pata hai, sabne pehle hi keh diya tha ki tumse thoda door rehna. 😂
-Maine bhi socha tha, chalo dekhte hain aakhir itni warnings kyun mil rahi hain. 😭😂
-Unfortunately… tum itne bure bhi nahi nikle. 😉`,
-
-    4: `Kabhi kabhi kuch logon se baat karne ke liye
-koi special reason nahi chahiye hota.
-Bas mann kiya, message kar diya… aur baat chal padti hai. 😂
-Phir pata nahi kaise ek chhoti si conversation poora mood theek kar deti hai.
-Aur shayad isi liye kuch conversations bas khatam karne ka mann nahi karta. 🫶🏻`,
-
-    5: `Dosti ka bhi na, koi fixed definition nahi hoti.
-Kabhi roz baat karne wale bhi bas jaan-pehchaan reh jaate hain,
-aur kabhi door rehne wala koi insaan itna apna ban jaata hai.
-Pata hi nahi chala kab tum ek random person se
-ek genuinely important friend ban gaye. 🫶🏻`,
-
-    6: `Kuch yaadein bas yaadein nahi hoti, unke saath ek poora sa ehsaas juda hota hai.
-Itne saare moments mein se kuch yaad reh gaye, kuch bas hansi de gaye.
-Pata nahi future mein aur kitni memories add hongi,
-lekin jo ab tak bana hai, woh genuinely special hai.
-Toh shayad… hamari ye chhoti si journey yahin thodi der ke liye rukti hai. 🫶🏻
-Aur haan… here is your key. 🗝️👉🏻`
-
-    };
-
-
     /*
-       DOOR 6 = YOUR REPOSITORY PHOTO
-
-       OTHER DOORS = ORIGINAL PLACEHOLDER
+       Reset photo animation.
+       This makes EVERY photo perform
+       the same twirl.
     */
 
-    if(number === 6){
+    photo.style.animation = "none";
 
-        photoBox.innerHTML = `
-            <img
-                src="${door6Photo}"
-                class="memoryPhoto"
-                alt="Memory Photo">
-        `;
+    /*
+       Force browser reflow so animation
+       starts again every time.
+    */
 
-    }
-    else{
+    void photo.offsetWidth;
 
-        photoBox.innerHTML =
-        "MEMORY PHOTO";
+    /*
+       Set correct photo.
+    */
 
-    }
+    photo.src =
+    doorPhotos[number];
 
+    /*
+       Set correct message.
+    */
 
     message.textContent =
     messages[number] ||
     "A memory waits here.";
 
+    /*
+       Show screen.
+    */
 
     memory.style.display =
     "flex";
-
 
     requestAnimationFrame(function(){
 
         memory.classList.add("show");
 
     });
+
 }
 
 
@@ -1801,19 +1769,15 @@ function closeMemory(){
 
     stopDoorSong();
 
-
     const memory =
     document.getElementById("memoryScreen");
 
-
     memory.classList.remove("show");
-
 
     setTimeout(function(){
 
         memory.style.display =
         "none";
-
 
         if(lastDoor){
 
@@ -1822,14 +1786,11 @@ function closeMemory(){
             return;
         }
 
-
         const hallway =
         document.getElementById("hallwayScreen");
 
-
         hallway.style.display =
         "flex";
-
 
         requestAnimationFrame(function(){
 
@@ -1851,10 +1812,8 @@ function showKeyScreen(){
     const keyScreen =
     document.getElementById("keyScreen");
 
-
     keyScreen.style.display =
     "flex";
-
 
     requestAnimationFrame(function(){
 
@@ -1873,15 +1832,12 @@ function continueFromKey(){
     const keyScreen =
     document.getElementById("keyScreen");
 
-
     keyScreen.classList.remove("show");
-
 
     setTimeout(function(){
 
         keyScreen.style.display =
         "none";
-
 
         startScene3();
 
@@ -1891,7 +1847,6 @@ function continueFromKey(){
 
 /* =========================================================
    SCENE 3
-   EXACTLY 11 SECONDS
 ========================================================= */
 
 function startScene3(){
@@ -1908,7 +1863,6 @@ function startScene3(){
     const wait =
     document.getElementById("waitMessage");
 
-
     key.classList.remove("visible");
 
     lock.classList.remove(
@@ -1918,17 +1872,14 @@ function startScene3(){
 
     wait.classList.remove("visible");
 
-
     scene3.style.display =
     "flex";
-
 
     requestAnimationFrame(function(){
 
         scene3.classList.add("show");
 
     });
-
 
     stopDoorSong();
 
@@ -1945,24 +1896,11 @@ function startScene3(){
 
     });
 
-
-    /*
-       0.2 sec
-       Key appears
-    */
-
     setTimeout(function(){
 
         key.classList.add("visible");
 
     },200);
-
-
-    /*
-       2.2 sec
-       Key disappears
-       Lock appears
-    */
 
     setTimeout(function(){
 
@@ -1972,23 +1910,11 @@ function startScene3(){
 
     },2200);
 
-
-    /*
-       5 sec
-       Lock unlocks
-    */
-
     setTimeout(function(){
 
         lock.classList.add("unlock");
 
     },5000);
-
-
-    /*
-       7 sec
-       Message appears
-    */
 
     setTimeout(function(){
 
@@ -1996,13 +1922,6 @@ function startScene3(){
 
     },7000);
 
-
-    /*
-       11 sec
-       Scene 3 ends
-    */
-
-    scene3Timer =
     setTimeout(function(){
 
         finishScene3();
@@ -2023,19 +1942,15 @@ function finishScene3(){
     const birthday =
     document.getElementById("birthdayScreen");
 
-
     scene3.classList.remove("show");
-
 
     setTimeout(function(){
 
         scene3.style.display =
         "none";
 
-
         birthday.style.display =
         "flex";
-
 
         requestAnimationFrame(function(){
 
@@ -2043,9 +1958,7 @@ function finishScene3(){
 
         });
 
-
         createConfetti();
-
 
         setTimeout(function(){
 
@@ -2055,7 +1968,6 @@ function finishScene3(){
 
         },200);
 
-
         setTimeout(function(){
 
             document
@@ -2064,7 +1976,6 @@ function finishScene3(){
 
         },900);
 
-
         setTimeout(function(){
 
             document
@@ -2072,7 +1983,6 @@ function finishScene3(){
             .classList.add("visible");
 
         },1800);
-
 
     },900);
 }
@@ -2087,37 +1997,29 @@ function createConfetti(){
     const container =
     document.getElementById("confetti");
 
-
     container.innerHTML = "";
-
 
     for(let i = 0; i < 80; i++){
 
         const piece =
         document.createElement("div");
 
-
         piece.className =
         "confettiPiece";
-
 
         piece.style.left =
         Math.random() * 100 + "%";
 
-
         piece.style.animationDelay =
         Math.random() * 1.5 + "s";
 
-
         piece.style.animationDuration =
         (2.5 + Math.random() * 2) + "s";
-
 
         piece.style.transform =
         "rotate(" +
         Math.random() * 360 +
         "deg)";
-
 
         container.appendChild(piece);
 
