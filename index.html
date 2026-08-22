@@ -25,23 +25,36 @@ body{
     overflow:hidden;
 }
 
+/* ================= DUST ================= */
+
 .dust{
     position:fixed;
     inset:0;
     pointer-events:none;
     z-index:1;
+
     background:
     radial-gradient(circle at 20% 30%,rgba(255,255,255,.16) 1px,transparent 1px),
     radial-gradient(circle at 70% 60%,rgba(255,255,255,.10) 1px,transparent 1px),
     radial-gradient(circle at 40% 80%,rgba(255,255,255,.12) 1px,transparent 1px);
+
     background-size:180px 180px;
+
     animation:dustMove 18s linear infinite;
+
     opacity:.35;
 }
 
 @keyframes dustMove{
-    from{transform:translateY(0);}
-    to{transform:translateY(-150px);}
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-150px);
+    }
+
 }
 
 /* ================= AUDIO ================= */
@@ -58,12 +71,17 @@ body{
     position:fixed;
     inset:0;
     z-index:10;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     background:#000;
+
     opacity:1;
+
     transition:opacity 1.5s ease;
 }
 
@@ -87,36 +105,56 @@ body{
 
 .option{
     width:220px;
+
     padding:13px 20px;
+
     background:transparent;
+
     color:#F5F1E8;
+
     border:1px solid #b99b5a;
+
     border-radius:30px;
+
     font-family:'Libre Baskerville',serif;
+
     font-size:17px;
+
     cursor:pointer;
+
     transition:.4s;
 }
 
 .option:hover{
     background:#b99b5a;
+
     color:#000;
-    box-shadow:0 0 25px rgba(255,215,120,.5);
+
+    box-shadow:
+    0 0 25px rgba(255,215,120,.5);
 }
 
 /* ================= ACCESS ================= */
 
 .accessScreen{
     display:none;
+
     position:fixed;
     inset:0;
+
     z-index:50;
+
     background:#000;
+
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
+
     text-align:center;
+
     opacity:0;
+
     transition:opacity 1s ease;
 }
 
@@ -138,6 +176,7 @@ body{
 
 .granted{
     color:#ffe6a3;
+
     text-shadow:
     0 0 15px #ffe6a3,
     0 0 35px #ffe6a3;
@@ -146,19 +185,26 @@ body{
 .loadingBar{
     width:230px;
     height:4px;
+
     margin-top:30px;
+
     background:#211c13;
+
     border-radius:10px;
+
     overflow:hidden;
 }
 
 .loadingProgress{
     width:0%;
     height:100%;
+
     background:#ffe6a3;
+
     box-shadow:
     0 0 10px #ffe6a3,
     0 0 20px #ffe6a3;
+
     transition:width .25s linear;
 }
 
@@ -166,13 +212,19 @@ body{
 
 .scene1{
     display:none;
+
     position:fixed;
     inset:0;
+
     z-index:5;
+
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     opacity:0;
+
     transition:opacity 1.5s ease;
 }
 
@@ -192,8 +244,12 @@ body{
 
 .key{
     font-size:110px;
+
     margin:35px 0;
-    text-shadow:0 0 20px rgba(255,215,120,.45);
+
+    text-shadow:
+    0 0 20px rgba(255,215,120,.45);
+
     animation-delay:3s;
 }
 
@@ -204,7 +260,9 @@ body{
 
 .line3{
     font-size:24px;
+
     margin:12px 0 40px;
+
     animation-delay:7s;
 }
 
@@ -214,14 +272,23 @@ body{
 
 .scene1 button{
     background:transparent;
+
     color:#F5F1E8;
+
     border:1px solid #F5F1E8;
+
     padding:12px 30px;
+
     border-radius:30px;
+
     margin:10px;
+
     font-size:18px;
+
     font-family:'Libre Baskerville',serif;
+
     cursor:pointer;
+
     transition:.4s;
 }
 
@@ -234,27 +301,38 @@ body{
 
 .hallwayScreen{
     display:none;
+
     position:fixed;
     inset:0;
+
     z-index:5;
+
     width:100%;
     min-height:100vh;
+
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
+
     opacity:0;
+
     transition:opacity 1.2s ease;
 }
 
 .title{
     font-size:30px;
+
     letter-spacing:2px;
+
     margin-bottom:35px;
+
     text-align:center;
 }
 
 .hallway{
     position:relative;
+
     width:520px;
     height:520px;
 }
@@ -263,16 +341,26 @@ body{
 
 .door{
     position:absolute;
+
     width:95px;
     height:170px;
+
     background:#17120c;
+
     border:2px solid #b99b5a;
-    box-shadow:0 0 20px rgba(255,215,120,.3);
+
+    box-shadow:
+    0 0 20px rgba(255,215,120,.3);
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     font-size:14px;
+
     cursor:pointer;
+
     opacity:1;
 
     transition:
@@ -282,12 +370,18 @@ body{
 }
 
 .door:hover{
-    box-shadow:0 0 40px rgba(255,215,120,.8);
+
+    box-shadow:
+    0 0 40px rgba(255,215,120,.8);
+
 }
 
 .door.opening{
+
     transform:scale(2.6);
+
     opacity:0;
+
     pointer-events:none;
 }
 
@@ -325,11 +419,17 @@ body{
 
 .light{
     position:absolute;
+
     width:13px;
     height:13px;
+
     border-radius:50%;
+
     background:#ffe6a3;
-    box-shadow:0 0 25px #ffe6a3;
+
+    box-shadow:
+    0 0 25px #ffe6a3;
+
     transition:opacity 1s ease;
 }
 
@@ -370,17 +470,27 @@ body{
 /* ================= MEMORY ================= */
 
 .memoryScreen{
+
     display:none;
+
     position:fixed;
     inset:0;
+
     z-index:1000;
+
     background:#000;
+
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
+
     text-align:center;
+
     padding:25px;
+
     opacity:0;
+
     transition:opacity 1.2s ease;
 }
 
@@ -388,101 +498,124 @@ body{
     opacity:1;
 }
 
-/* PHOTO BOX */
-
-.photoFrame{
-    width:280px;
-    height:360px;
-    border:2px solid #b99b5a;
-    background:#050505;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    box-shadow:0 0 35px rgba(255,215,120,.25);
-
-    opacity:0;
-    transform:
-        perspective(800px)
-        rotateY(90deg)
-        scale(.85);
-
-    transform-style:preserve-3d;
-}
-
-/* SAME SPEED FOR EVERY PHOTO */
-
-.memoryScreen.show .photoFrame{
-    animation:photoTwirl 1.4s cubic-bezier(.22,.61,.36,1) forwards;
-}
-
-@keyframes photoTwirl{
-
-    0%{
-        opacity:0;
-        transform:
-            perspective(800px)
-            rotateY(90deg)
-            scale(.85);
-    }
-
-    45%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:1;
-        transform:
-            perspective(800px)
-            rotateY(0deg)
-            scale(1);
-    }
-}
+/* PHOTO */
 
 .memoryPhoto{
-    width:100%;
-    height:100%;
+
+    width:280px;
+    height:360px;
+
     object-fit:cover;
-    display:block;
+
+    border:2px solid #b99b5a;
+
+    background:#080604;
+
+    box-shadow:
+    0 0 35px rgba(255,215,120,.25);
+
+    opacity:0;
+
+    transform:
+    rotateY(90deg)
+    scale(.75);
+
+    transition:
+    opacity .9s ease,
+    transform .9s cubic-bezier(.22,.61,.36,1);
+}
+
+.memoryPhoto.show{
+
+    opacity:1;
+
+    transform:
+    rotateY(0deg)
+    scale(1);
 }
 
 .memoryMessage{
+
     margin-top:28px;
+
     max-width:600px;
+
     font-size:20px;
+
     line-height:1.7;
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+.memoryMessage.show{
+
+    opacity:1;
+
+    transform:translateY(0);
 }
 
 .continueButton{
+
     margin-top:30px;
+
     padding:12px 32px;
+
     border-radius:30px;
+
     background:transparent;
+
     color:#F5F1E8;
+
     border:1px solid #b99b5a;
+
     font-family:'Libre Baskerville',serif;
+
     cursor:pointer;
+
     transition:.4s;
+
+    opacity:0;
+}
+
+.continueButton.show{
+    opacity:1;
 }
 
 .continueButton:hover{
+
     background:#b99b5a;
+
     color:#000;
 }
 
 /* ================= KEY SCREEN ================= */
 
 .keyScreen{
+
     display:none;
+
     position:fixed;
     inset:0;
+
     z-index:1500;
+
     background:#000;
+
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
+
     text-align:center;
+
     opacity:0;
+
     transition:opacity 1.2s ease;
 }
 
@@ -491,65 +624,99 @@ body{
 }
 
 .keySymbol{
+
     font-size:90px;
+
     text-shadow:
     0 0 15px #ffe6a3,
     0 0 40px #ffe6a3;
-    animation:keyGlow 2s ease-in-out infinite alternate;
+
+    animation:
+    keyGlow 2s ease-in-out infinite alternate;
 }
 
 .keyText{
+
     margin-top:25px;
+
     font-size:24px;
+
     letter-spacing:3px;
 }
 
 .keyContinue{
+
     margin-top:35px;
+
     padding:12px 32px;
+
     border-radius:30px;
+
     background:transparent;
+
     color:#F5F1E8;
+
     border:1px solid #b99b5a;
+
     font-family:'Libre Baskerville',serif;
+
     cursor:pointer;
+
     transition:.4s;
 }
 
 .keyContinue:hover{
+
     background:#b99b5a;
+
     color:#000;
 }
 
 @keyframes keyGlow{
 
     from{
+
         opacity:.6;
+
         transform:scale(.96);
+
     }
 
     to{
+
         opacity:1;
+
         transform:scale(1.05);
+
         text-shadow:
         0 0 20px #ffe6a3,
         0 0 50px #ffe6a3;
     }
+
 }
 
 /* ================= SCENE 3 ================= */
 
 .scene3{
+
     display:none;
+
     position:fixed;
     inset:0;
+
     z-index:2000;
+
     background:#000;
+
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     overflow:hidden;
+
     opacity:0;
+
     transition:opacity .8s ease;
 }
 
@@ -558,9 +725,12 @@ body{
 }
 
 .scene3Particles{
+
     position:absolute;
     inset:0;
+
     pointer-events:none;
+
     opacity:.4;
 
     background:
@@ -570,24 +740,37 @@ body{
     radial-gradient(circle at 85% 20%,rgba(255,215,120,.4) 1px,transparent 2px);
 
     background-size:180px 180px;
+
     animation:scene3Dust 12s linear infinite;
 }
 
 .scene3Content{
+
     position:relative;
+
     width:100%;
     height:100%;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     flex-direction:column;
 }
 
+/* KEY */
+
 .scene3Key{
+
     position:absolute;
+
     font-size:110px;
+
     opacity:0;
+
     transform:scale(.6);
+
     transition:
     opacity 1s ease,
     transform 1s ease;
@@ -598,12 +781,18 @@ body{
 }
 
 .scene3Key.visible{
+
     opacity:1;
+
     transform:scale(1);
 }
 
+/* LOCK */
+
 .lockContainer{
+
     position:absolute;
+
     left:50%;
     top:50%;
 
@@ -619,6 +808,7 @@ body{
 }
 
 .lockContainer.visible{
+
     opacity:1;
 
     transform:
@@ -627,10 +817,12 @@ body{
 }
 
 .lockBody{
+
     width:95px;
     height:78px;
 
     border:4px solid #b99b5a;
+
     border-radius:14px;
 
     background:#100d08;
@@ -643,6 +835,7 @@ body{
 }
 
 .lockShackle{
+
     position:absolute;
 
     width:50px;
@@ -652,6 +845,7 @@ body{
     top:-40px;
 
     border:4px solid #b99b5a;
+
     border-bottom:none;
 
     border-radius:28px 28px 0 0;
@@ -664,54 +858,74 @@ body{
 }
 
 .lockContainer.unlock .lockShackle{
+
     transform:
     translateY(-35px)
     rotate(-18deg);
 }
 
 .lockContainer.unlock .lockBody{
-    animation:lockGlow .9s ease forwards;
+
+    animation:
+    lockGlow .9s ease forwards;
 }
 
 .lockKeyhole{
+
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-35%);
+
+    transform:
+    translate(-50%,-35%);
+
     font-size:25px;
+
     color:#ffe6a3;
-    text-shadow:0 0 15px #ffe6a3;
+
+    text-shadow:
+    0 0 15px #ffe6a3;
 }
 
 @keyframes lockGlow{
 
     0%{
+
         box-shadow:
         0 0 20px rgba(255,215,120,.35),
         inset 0 0 20px rgba(255,215,120,.08);
     }
 
     50%{
+
         box-shadow:
         0 0 40px #ffe6a3,
         0 0 80px rgba(255,215,120,.7);
     }
 
     100%{
+
         box-shadow:
         0 0 70px rgba(255,215,120,.9);
     }
+
 }
 
+/* WAIT */
+
 .waitMessage{
+
     position:absolute;
 
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+    translate(-50%,-50%);
 
     font-size:25px;
+
     letter-spacing:2px;
 
     opacity:0;
@@ -728,6 +942,7 @@ body{
 /* ================= BIRTHDAY ================= */
 
 .birthdayScreen{
+
     display:none;
 
     position:fixed;
@@ -754,14 +969,29 @@ body{
 }
 
 .birthdayContent{
+
     width:90%;
     max-width:700px;
 
     position:relative;
+
     z-index:2;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:20px;
+
+    scrollbar-width:none;
+}
+
+.birthdayContent::-webkit-scrollbar{
+    display:none;
 }
 
 .birthdayTitle{
+
     font-size:42px;
 
     color:#ffe6a3;
@@ -780,15 +1010,21 @@ body{
 }
 
 .birthdayTitle.visible{
+
     opacity:1;
+
     transform:scale(1);
 }
 
 .birthdayMessage{
+
     margin-top:35px;
 
-    font-size:19px;
-    line-height:1.8;
+    font-size:18px;
+
+    line-height:1.9;
+
+    text-align:center;
 
     opacity:0;
 
@@ -800,6 +1036,7 @@ body{
 }
 
 .birthdayButtons{
+
     margin-top:40px;
 
     opacity:0;
@@ -812,6 +1049,7 @@ body{
 }
 
 .birthdayButtons button{
+
     background:transparent;
 
     color:#F5F1E8;
@@ -830,21 +1068,29 @@ body{
 }
 
 .birthdayButtons button:hover{
+
     background:#b99b5a;
+
     color:#000;
 }
 
 /* ================= CONFETTI ================= */
 
 .confetti{
+
     position:absolute;
+
     inset:0;
+
     pointer-events:none;
+
     overflow:hidden;
+
     z-index:1;
 }
 
 .confettiPiece{
+
     position:absolute;
 
     width:7px;
@@ -854,30 +1100,38 @@ body{
 
     background:#ffe6a3;
 
-    animation:confettiFall 3s linear forwards;
+    animation:
+    confettiFall 3s linear forwards;
 }
 
 @keyframes confettiFall{
 
     0%{
+
         transform:
         translateY(-20px)
         rotate(0deg);
+
         opacity:1;
     }
 
     100%{
+
         transform:
         translateY(110vh)
         rotate(720deg);
+
         opacity:0;
     }
+
 }
 
 @keyframes fade{
+
     to{
         opacity:1;
     }
+
 }
 
 @keyframes scene3Dust{
@@ -889,6 +1143,7 @@ body{
     to{
         transform:translateY(-150px);
     }
+
 }
 
 /* ================= MOBILE ================= */
@@ -925,12 +1180,31 @@ body{
         transform:scale(.72);
     }
 
+    .memoryPhoto{
+
+        width:240px;
+        height:310px;
+
+    }
+
+    .memoryMessage{
+
+        font-size:16px;
+
+        max-width:330px;
+
+    }
+
     .birthdayTitle{
         font-size:32px;
     }
 
     .birthdayMessage{
-        font-size:16px;
+
+        font-size:15px;
+
+        line-height:1.8;
+
     }
 
     .scene3Key{
@@ -939,15 +1213,6 @@ body{
 
     .waitMessage{
         font-size:19px;
-    }
-
-    .photoFrame{
-        width:240px;
-        height:310px;
-    }
-
-    .memoryMessage{
-        font-size:16px;
     }
 
 }
@@ -987,17 +1252,20 @@ body{
 
         <div class="options">
 
-            <button class="option"
+            <button
+                class="option"
                 onclick="checkAnswer('chomu')">
                 Chomu
             </button>
 
-            <button class="option"
+            <button
+                class="option"
                 onclick="checkAnswer('aloo')">
                 Aloo Paloo
             </button>
 
-            <button class="option"
+            <button
+                class="option"
                 onclick="checkAnswer('berozgar')">
                 Berozgar
             </button>
@@ -1025,9 +1293,15 @@ body{
         Choose again.
     </div>
 
-    <div class="loadingBar" id="loadingBar" style="display:none;">
+    <div
+        class="loadingBar"
+        id="loadingBar"
+        style="display:none;">
 
-        <div class="loadingProgress" id="loadingProgress"></div>
+        <div
+            class="loadingProgress"
+            id="loadingProgress">
+        </div>
 
     </div>
 
@@ -1075,7 +1349,9 @@ body{
 
 <!-- ================= SCENE 2 ================= -->
 
-<div class="hallwayScreen" id="hallwayScreen">
+<div
+    class="hallwayScreen"
+    id="hallwayScreen">
 
     <div class="title">
         Find the key...
@@ -1083,33 +1359,39 @@ body{
 
     <div class="hallway">
 
-        <div class="door door1"
-             onclick="openDoor(1,this)">
+        <div
+            class="door door1"
+            onclick="openDoor(1,this)">
             Door 1
         </div>
 
-        <div class="door door2"
-             onclick="openDoor(2,this)">
+        <div
+            class="door door2"
+            onclick="openDoor(2,this)">
             Door 2
         </div>
 
-        <div class="door door3"
-             onclick="openDoor(3,this)">
+        <div
+            class="door door3"
+            onclick="openDoor(3,this)">
             Door 3
         </div>
 
-        <div class="door door4"
-             onclick="openDoor(4,this)">
+        <div
+            class="door door4"
+            onclick="openDoor(4,this)">
             Door 4
         </div>
 
-        <div class="door door5"
-             onclick="openDoor(5,this)">
+        <div
+            class="door door5"
+            onclick="openDoor(5,this)">
             Door 5
         </div>
 
-        <div class="door door6"
-             onclick="openDoor(6,this)">
+        <div
+            class="door door6"
+            onclick="openDoor(6,this)">
             Door 6
         </div>
 
@@ -1127,24 +1409,25 @@ body{
 
 <!-- ================= MEMORY ================= -->
 
-<div class="memoryScreen" id="memoryScreen">
+<div
+    class="memoryScreen"
+    id="memoryScreen">
 
-    <div class="photoFrame">
+    <img
+        class="memoryPhoto"
+        id="memoryPhoto"
+        src=""
+        alt="Memory">
 
-        <img
-            id="memoryPhoto"
-            class="memoryPhoto"
-            src=""
-            alt="Memory">
-
-    </div>
-
-    <div class="memoryMessage" id="memoryMessage">
+    <div
+        class="memoryMessage"
+        id="memoryMessage">
         A memory waits here...
     </div>
 
     <button
         class="continueButton"
+        id="continueButton"
         onclick="closeMemory()">
         Continue
     </button>
@@ -1154,7 +1437,9 @@ body{
 
 <!-- ================= KEY SCREEN ================= -->
 
-<div class="keyScreen" id="keyScreen">
+<div
+    class="keyScreen"
+    id="keyScreen">
 
     <div class="keySymbol">
         🗝️
@@ -1175,17 +1460,23 @@ body{
 
 <!-- ================= SCENE 3 ================= -->
 
-<div class="scene3" id="scene3">
+<div
+    class="scene3"
+    id="scene3">
 
     <div class="scene3Particles"></div>
 
     <div class="scene3Content">
 
-        <div class="scene3Key" id="scene3Key">
+        <div
+            class="scene3Key"
+            id="scene3Key">
             🗝️
         </div>
 
-        <div class="lockContainer" id="lockContainer">
+        <div
+            class="lockContainer"
+            id="lockContainer">
 
             <div class="lockShackle"></div>
 
@@ -1199,7 +1490,9 @@ body{
 
         </div>
 
-        <div class="waitMessage" id="waitMessage">
+        <div
+            class="waitMessage"
+            id="waitMessage">
             Your wait is over.
         </div>
 
@@ -1208,30 +1501,66 @@ body{
 </div>
 
 
-<!-- ================= BIRTHDAY ================= -->
+<!-- ================= FINAL BIRTHDAY ================= -->
 
-<div class="birthdayScreen" id="birthdayScreen">
+<div
+    class="birthdayScreen"
+    id="birthdayScreen">
 
-    <div class="confetti" id="confetti"></div>
+    <div
+        class="confetti"
+        id="confetti">
+    </div>
 
     <div class="birthdayContent">
 
-        <div class="birthdayTitle" id="birthdayTitle">
+        <div
+            class="birthdayTitle"
+            id="birthdayTitle">
             Happy Birthday ❤️
         </div>
 
-        <div class="birthdayMessage" id="birthdayMessage">
+        <div
+            class="birthdayMessage"
+            id="birthdayMessage">
 
-            Thank you for opening every memory.
+            To my bestest friend, Mr. Aloo Paloo 🥔❤️
+            <br>
+            sabse zyada annoying but sabse special insaan 😂
+            <br><br>
+
+            Pata nahi tumhe realise hai ya nahi, but you genuinely mean a lot to me.
+            <br><br>
+
+            Thank you for all the random bakwaas, stupid conversations aur endless laughs.
+            <br>
+            Tumhare saath normal cheezein bhi somehow memorable ban jaati hain
+            <br><br>
+
+            I hope tumhari life mein hamesha khushiyan aur success rahe.
+            <br>
+            Jo bhi dreams hain tumhare, I hope ek din sab poore ho jaayein.
+            <br><br>
+
+            I hope humari ye dosti aise hi random, stupid aur special bani rahe.
+            <br>
+            Bas meri favourite bakwaas company bane rehna, aur kuch nahi chahiye.
+            <br><br>
+
+            May this year give you countless reasons to smile and make some crazy memories.
+            <br><br>
+
+            Happy Birthday once again, my SUGAR without G = SUg̶AR 😇
 
             <br><br>
 
-            I hope this year brings you happiness,
-            peace, and countless beautiful moments.
+            — From your favourite person, obviously 😌
 
         </div>
 
-        <div class="birthdayButtons" id="birthdayButtons">
+        <div
+            class="birthdayButtons"
+            id="birthdayButtons">
 
             <button onclick="location.reload()">
                 Start Again
@@ -1260,8 +1589,37 @@ const finalSong =
 document.getElementById("finalSong");
 
 backgroundMusic.volume = 0.15;
+
 doorSong.volume = 0.30;
+
 finalSong.volume = 0.30;
+
+
+/* =========================================================
+   PHOTO FILES
+========================================================= */
+
+const photos = {
+
+    1:
+    "file_00000000c2308211bb38f0dda1270b59.png",
+
+    2:
+    "Screenshot_2026-08-22-01-03-42-790.jpeg",
+
+    3:
+    "Screenshot_2026-08-21-20-31-01-477.jpeg",
+
+    4:
+    "Screenshot_2026-08-21-20-31-27-166.jpeg",
+
+    5:
+    "Screenshot_2026-08-21-00-16-06-866.jpeg",
+
+    6:
+    "file_00000000b6f081faa703900100edbabc (1).jpg"
+
+};
 
 
 /* =========================================================
@@ -1286,74 +1644,7 @@ const doorSongs = {
     "Dooron_Dooron___Without_Music___Slowed___Vocals___Lyrics___Status_%23explore_%23shortsfeed_%23shorts(48k)",
 
     6:
-    "Spider-Man_x_Rain_edit_🫶_@officialBanjaare_%23spiderman_%23spidermanedit_%23spidermanbrandnewdayedit(48k)"
-};
-
-
-/* =========================================================
-   PHOTO FILES
-========================================================= */
-
-const doorPhotos = {
-
-    1:
-    "file_00000000c2308211bb38f0dda1270b59.png",
-
-    2:
-    "Screenshot_2026-08-21-20-31-27-166.jpeg",
-
-    3:
-    "Screenshot_2026-08-21-20-31-01-477.jpeg",
-
-    4:
-    "Screenshot_2026-08-21-00-16-06-866.jpeg",
-
-    5:
-    "Screenshot_2026-08-22-01-03-42-790.jpeg",
-
-    6:
-    "file_00000000b6f081faa703900100edbabc (1).jpg"
-};
-
-
-/* =========================================================
-   MESSAGES
-========================================================= */
-
-const messages = {
-
-1: `Pata nahi kab itni saari yaadein ban gayi,
-bas ab tum un logon mein aa gaye ho jinke bina kuch moments adhure lagte hain. 🫶🏻
-Zyada khush mat hona, bas birthday hai aaj. 😭😂`,
-
-2: `Kuch logon ko birthday wishes milti hain,
-aur kuch ko bas ek ajeeb sa website mil jaata hai. 😂
-Tum lucky ho… ya phir unfortunate, pta nhi lekin. 😭
-Itna effort dekh ke thank you bol dena,
-warna next time sirf “HBD” likh ke chhod dungi. 😇`,
-
-3: `Pata hai, sabne pehle hi keh diya tha ki tumse thoda door rehna. 😂
-Maine bhi socha tha, chalo dekhte hain aakhir itni warnings kyun mil rahi hain. 😭😂
-Unfortunately… tum itne bure bhi nahi nikle. 😉`,
-
-4: `Kabhi kabhi kuch logon se baat karne ke liye
-koi special reason nahi chahiye hota.
-Bas mann kiya, message kar diya… aur baat chal padti hai. 😂
-Phir pata nahi kaise ek chhoti si conversation poora mood theek kar deti hai.
-Aur shayad isi liye kuch conversations bas khatam karne ka mann nahi karta. 🫶🏻`,
-
-5: `Dosti ka bhi na, koi fixed definition nahi hoti.
-Kabhi roz baat karne wale bhi bas jaan-pehchaan reh jaate hain,
-aur kabhi door rehne wala koi insaan itna apna ban jaata hai.
-Pata hi nahi chala kab tum ek random person se
-ek genuinely important friend ban gaye. 🫶🏻`,
-
-6: `Kuch yaadein bas yaadein nahi hoti, unke saath ek poora sa ehsaas juda hota hai.
-Itne saare moments mein se kuch yaad reh gaye, kuch bas hansi de gaye.
-Pata nahi future mein aur kitni memories add hongi,
-lekin jo ab tak bana hai, woh genuinely special hai.
-Toh shayad… hamari ye chhoti si journey yahin thodi der ke liye rukti hai. 🫶🏻
-Aur haan… here is your key. 🗝️👉🏻`
+    "Spider-Man_x_Rain_edit_🫶_@officialBanjaare_%23spiderman_%23spidermanbrandnewdayedit(48k)"
 
 };
 
@@ -1363,7 +1654,9 @@ Aur haan… here is your key. 🗝️👉🏻`
 ========================================================= */
 
 let currentDoor = null;
+
 let openedDoors = 0;
+
 let lastDoor = false;
 
 
@@ -1380,6 +1673,7 @@ function stopDoorSong(){
     doorSong.removeAttribute("src");
 
     doorSong.load();
+
 }
 
 
@@ -1388,6 +1682,7 @@ function stopBackgroundMusic(){
     backgroundMusic.pause();
 
     backgroundMusic.currentTime = 0;
+
 }
 
 
@@ -1396,6 +1691,7 @@ function stopFinalSong(){
     finalSong.pause();
 
     finalSong.currentTime = 0;
+
 }
 
 
@@ -1426,7 +1722,9 @@ function checkAnswer(answer){
     const progress =
     document.getElementById("loadingProgress");
 
+
     scene0.style.opacity = "0";
+
 
     setTimeout(function(){
 
@@ -1435,8 +1733,11 @@ function checkAnswer(answer){
         access.style.display = "flex";
 
         requestAnimationFrame(function(){
+
             access.style.opacity = "1";
+
         });
+
 
         if(answer === "aloo"){
 
@@ -1453,7 +1754,9 @@ function checkAnswer(answer){
             loadingBar.style.display =
             "block";
 
+
             let value = 0;
+
 
             const loading =
             setInterval(function(){
@@ -1463,13 +1766,16 @@ function checkAnswer(answer){
                 progress.style.width =
                 value + "%";
 
+
                 if(value >= 100){
 
                     clearInterval(loading);
 
+
                     setTimeout(function(){
 
                         access.style.opacity = "0";
+
 
                         setTimeout(function(){
 
@@ -1481,6 +1787,7 @@ function checkAnswer(answer){
                         },700);
 
                     },400);
+
                 }
 
             },60);
@@ -1502,9 +1809,11 @@ function checkAnswer(answer){
             loadingBar.style.display =
             "none";
 
+
             setTimeout(function(){
 
                 access.style.opacity = "0";
+
 
                 setTimeout(function(){
 
@@ -1515,7 +1824,10 @@ function checkAnswer(answer){
                     "flex";
 
                     requestAnimationFrame(function(){
-                        scene0.style.opacity = "1";
+
+                        scene0.style.opacity =
+                        "1";
+
                     });
 
                 },500);
@@ -1525,6 +1837,7 @@ function checkAnswer(answer){
         }
 
     },700);
+
 }
 
 
@@ -1547,11 +1860,17 @@ function showScene1(){
 
     });
 
+
     backgroundMusic.currentTime = 0;
 
     backgroundMusic.play().catch(function(){
-        console.log("Background music waiting.");
+
+        console.log(
+            "Background music waiting for browser permission."
+        );
+
     });
+
 }
 
 
@@ -1566,6 +1885,7 @@ function nahi(){
 
     scene1.style.opacity = "0";
 
+
     setTimeout(function(){
 
         scene1.style.display =
@@ -1574,6 +1894,7 @@ function nahi(){
         showScene1();
 
     },1000);
+
 }
 
 
@@ -1585,13 +1906,16 @@ function goToScene2(){
 
     stopBackgroundMusic();
 
+
     const scene1 =
     document.getElementById("scene1");
 
     const hallway =
     document.getElementById("hallwayScreen");
 
+
     scene1.style.opacity = "0";
+
 
     setTimeout(function(){
 
@@ -1601,6 +1925,7 @@ function goToScene2(){
         hallway.style.display =
         "flex";
 
+
         requestAnimationFrame(function(){
 
             hallway.style.opacity =
@@ -1609,27 +1934,33 @@ function goToScene2(){
         });
 
     },1200);
+
 }
 
 
 /* =========================================================
-   OPEN DOOR
+   DOOR OPEN
 ========================================================= */
 
-function openDoor(number, element){
+function openDoor(number,element){
 
     if(element.classList.contains("opening")){
         return;
     }
 
+
     stopDoorSong();
 
+
     currentDoor = number;
+
 
     const allDoors =
     document.querySelectorAll(".door");
 
+
     let remaining = 0;
+
 
     allDoors.forEach(function(door){
 
@@ -1644,30 +1975,44 @@ function openDoor(number, element){
 
     });
 
+
     lastDoor =
     remaining === 0;
 
+
     element.classList.add("opening");
 
+
     const light =
-    document.querySelector(".light" + number);
+    document.querySelector(
+        ".light" + number
+    );
+
 
     if(light){
+
         light.classList.add("off");
+
     }
 
+
     openedDoors++;
+
 
     const song =
     doorSongs[number];
 
+
     if(song){
 
-        doorSong.src = song;
+        doorSong.src =
+        song;
 
-        doorSong.volume = 0.30;
+        doorSong.volume =
+        0.30;
 
-        doorSong.currentTime = 0;
+        doorSong.currentTime =
+        0;
 
         doorSong.play().catch(function(error){
 
@@ -1680,12 +2025,15 @@ function openDoor(number, element){
 
     }
 
+
     setTimeout(function(){
 
         const hallway =
         document.getElementById("hallwayScreen");
 
-        hallway.style.opacity = "0";
+        hallway.style.opacity =
+        "0";
+
 
         setTimeout(function(){
 
@@ -1697,11 +2045,12 @@ function openDoor(number, element){
         },700);
 
     },1000);
+
 }
 
 
 /* =========================================================
-   SHOW MEMORY
+   MEMORY
 ========================================================= */
 
 function showMemory(number){
@@ -1715,48 +2064,114 @@ function showMemory(number){
     const message =
     document.getElementById("memoryMessage");
 
-    /*
-       Reset photo animation.
-       This makes EVERY photo perform
-       the same twirl.
-    */
+    const continueButton =
+    document.getElementById("continueButton");
 
-    photo.style.animation = "none";
 
-    /*
-       Force browser reflow so animation
-       starts again every time.
-    */
+    const messages = {
 
-    void photo.offsetWidth;
+        1:
+        `Pata nahi kab itni saari yaadein ban gayi,
+bas ab tum un logon mein aa gaye ho jinke bina kuch moments adhure lagte hain. 🫶🏻
+Zyada khush mat hona, bas birthday hai aaj. 😭😂`,
 
-    /*
-       Set correct photo.
-    */
+        2:
+        `Kuch logon ko birthday wishes milti hain,
+aur kuch ko bas ek ajeeb sa website mil jaata hai. 😂
+Tum lucky ho… ya phir unfortunate, pta nhi lekin. 😭
+Itna effort dekh ke thank you bol dena,
+warna next time sirf “HBD” likh ke chhod dungi. 😇`,
 
-    photo.src =
-    doorPhotos[number];
+        3:
+        `Pata hai, sabne pehle hi keh diya tha ki tumse thoda door rehna. 😂
+Maine bhi socha tha, chalo dekhte hain aakhir itni warnings kyun mil rahi hain. 😭😂
+Unfortunately… tum itne bure bhi nahi nikle. 😉`,
 
-    /*
-       Set correct message.
-    */
+        4:
+        `Kabhi kabhi kuch logon se baat karne ke liye
+koi special reason nahi chahiye hota.
+Bas mann kiya, message kar diya… aur baat chal padti hai. 😂
+Phir pata nahi kaise ek chhoti si conversation poora mood theek kar deti hai.
+Aur shayad isi liye kuch conversations bas khatam karne ka mann nahi karta. 🫶🏻`,
+
+        5:
+        `Dosti ka bhi na, koi fixed definition nahi hoti.
+Kabhi roz baat karne wale bhi bas jaan-pehchaan reh jaate hain,
+aur kabhi door rehne wala koi insaan itna apna ban jaata hai.
+Pata hi nahi chala kab tum ek random person se
+ek genuinely important friend ban gaye. 🫶🏻`,
+
+        6:
+        `Kuch yaadein bas yaadein nahi hoti, unke saath ek poora sa ehsaas juda hota hai.
+Itne saare moments mein se kuch yaad reh gaye, kuch bas hansi de gaye.
+Pata nahi future mein aur kitni memories add hongi,
+lekin jo ab tak bana hai, woh genuinely special hai.
+Toh shayad… hamari ye chhoti si journey yahin thodi der ke liye rukti hai. 🫶🏻
+Aur haan… here is your key. 🗝️👉🏻`
+
+    };
+
+
+    /* PHOTO */
+
+    photo.classList.remove("show");
+
+    photo.src = encodeURI(
+        photos[number]
+    );
+
+
+    photo.alt =
+    "Memory " + number;
+
+
+    /* MESSAGE */
 
     message.textContent =
     messages[number] ||
     "A memory waits here.";
 
-    /*
-       Show screen.
-    */
+
+    message.classList.remove("show");
+
+    continueButton.classList.remove("show");
+
 
     memory.style.display =
     "flex";
+
 
     requestAnimationFrame(function(){
 
         memory.classList.add("show");
 
     });
+
+
+    /*
+       SAME SPEED FOR EVERY PHOTO
+       Twirl animation starts after screen appears.
+    */
+
+    setTimeout(function(){
+
+        photo.classList.add("show");
+
+    },350);
+
+
+    setTimeout(function(){
+
+        message.classList.add("show");
+
+    },1100);
+
+
+    setTimeout(function(){
+
+        continueButton.classList.add("show");
+
+    },1400);
 
 }
 
@@ -1769,28 +2184,51 @@ function closeMemory(){
 
     stopDoorSong();
 
+
     const memory =
     document.getElementById("memoryScreen");
 
+    const photo =
+    document.getElementById("memoryPhoto");
+
+    const message =
+    document.getElementById("memoryMessage");
+
+    const continueButton =
+    document.getElementById("continueButton");
+
+
     memory.classList.remove("show");
+
+    photo.classList.remove("show");
+
+    message.classList.remove("show");
+
+    continueButton.classList.remove("show");
+
 
     setTimeout(function(){
 
         memory.style.display =
         "none";
 
+
         if(lastDoor){
 
             showKeyScreen();
 
             return;
+
         }
+
 
         const hallway =
         document.getElementById("hallwayScreen");
 
+
         hallway.style.display =
         "flex";
+
 
         requestAnimationFrame(function(){
 
@@ -1800,6 +2238,7 @@ function closeMemory(){
         });
 
     },1200);
+
 }
 
 
@@ -1812,14 +2251,17 @@ function showKeyScreen(){
     const keyScreen =
     document.getElementById("keyScreen");
 
+
     keyScreen.style.display =
     "flex";
+
 
     requestAnimationFrame(function(){
 
         keyScreen.classList.add("show");
 
     });
+
 }
 
 
@@ -1832,7 +2274,9 @@ function continueFromKey(){
     const keyScreen =
     document.getElementById("keyScreen");
 
+
     keyScreen.classList.remove("show");
+
 
     setTimeout(function(){
 
@@ -1842,6 +2286,7 @@ function continueFromKey(){
         startScene3();
 
     },1000);
+
 }
 
 
@@ -1863,6 +2308,7 @@ function startScene3(){
     const wait =
     document.getElementById("waitMessage");
 
+
     key.classList.remove("visible");
 
     lock.classList.remove(
@@ -1872,8 +2318,10 @@ function startScene3(){
 
     wait.classList.remove("visible");
 
+
     scene3.style.display =
     "flex";
+
 
     requestAnimationFrame(function(){
 
@@ -1881,11 +2329,16 @@ function startScene3(){
 
     });
 
+
     stopDoorSong();
 
-    finalSong.currentTime = 0;
 
-    finalSong.volume = 0.30;
+    finalSong.currentTime =
+    0;
+
+    finalSong.volume =
+    0.30;
+
 
     finalSong.play().catch(function(error){
 
@@ -1896,11 +2349,17 @@ function startScene3(){
 
     });
 
+
+    /* 0.2 sec */
+
     setTimeout(function(){
 
         key.classList.add("visible");
 
     },200);
+
+
+    /* 2.2 sec */
 
     setTimeout(function(){
 
@@ -1910,11 +2369,17 @@ function startScene3(){
 
     },2200);
 
+
+    /* 5 sec */
+
     setTimeout(function(){
 
         lock.classList.add("unlock");
 
     },5000);
+
+
+    /* 7 sec */
 
     setTimeout(function(){
 
@@ -1922,11 +2387,15 @@ function startScene3(){
 
     },7000);
 
+
+    /* 11 sec */
+
     setTimeout(function(){
 
         finishScene3();
 
     },11000);
+
 }
 
 
@@ -1942,15 +2411,19 @@ function finishScene3(){
     const birthday =
     document.getElementById("birthdayScreen");
 
+
     scene3.classList.remove("show");
+
 
     setTimeout(function(){
 
         scene3.style.display =
         "none";
 
+
         birthday.style.display =
         "flex";
+
 
         requestAnimationFrame(function(){
 
@@ -1958,7 +2431,9 @@ function finishScene3(){
 
         });
 
+
         createConfetti();
+
 
         setTimeout(function(){
 
@@ -1968,6 +2443,7 @@ function finishScene3(){
 
         },200);
 
+
         setTimeout(function(){
 
             document
@@ -1975,6 +2451,7 @@ function finishScene3(){
             .classList.add("visible");
 
         },900);
+
 
         setTimeout(function(){
 
@@ -1985,6 +2462,7 @@ function finishScene3(){
         },1800);
 
     },900);
+
 }
 
 
@@ -1997,33 +2475,42 @@ function createConfetti(){
     const container =
     document.getElementById("confetti");
 
+
     container.innerHTML = "";
 
-    for(let i = 0; i < 80; i++){
+
+    for(let i=0;i<80;i++){
 
         const piece =
         document.createElement("div");
 
+
         piece.className =
         "confettiPiece";
 
+
         piece.style.left =
-        Math.random() * 100 + "%";
+        Math.random()*100 + "%";
+
 
         piece.style.animationDelay =
-        Math.random() * 1.5 + "s";
+        Math.random()*1.5 + "s";
+
 
         piece.style.animationDuration =
-        (2.5 + Math.random() * 2) + "s";
+        (2.5 + Math.random()*2) + "s";
+
 
         piece.style.transform =
         "rotate(" +
-        Math.random() * 360 +
+        Math.random()*360 +
         "deg)";
+
 
         container.appendChild(piece);
 
     }
+
 }
 
 </script>
